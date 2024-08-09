@@ -1,0 +1,39 @@
+
+.subscription {
+  font-family: $font-family-secondary;
+
+  .table {
+    font-size: rem(14px);
+  }
+
+  .program-head {
+    color: $dark;
+
+    &[aria-expanded="true"]{
+
+      i {
+        transform: rotate(180deg);
+        transition: 0.3s;
+      }
+    }
+
+    &[aria-expanded="false"]{
+
+      i {
+        transform: rotate(0deg);
+        transition: 0.3s;
+      }
+    }
+  }
+}
+
+.dark-mode .main {
+  .program-head {
+    h5 {
+      color: $light;
+    }
+    i {
+      color: $light;
+    }
+  }
+}

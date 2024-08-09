@@ -1,0 +1,30 @@
+@extends('admin.layouts.template')
+
+@section('filters')
+
+    <div class="row">
+        <div class="col-lg-4">
+            @include('admin.layouts.components.filters.activity_action_equals', [
+                'actions' => $instance->actionOptions()
+            ])
+        </div>
+        <div class="col-lg-4">
+            @include('admin.layouts.components.filters.subject_type_equals', [
+                'subjectTypes' => $instance->subjectTypeOptions()
+            ])
+        </div>
+        <div class="col-lg-4">
+            @include('admin.layouts.components.filters.subject_id_equals')
+        </div>
+
+        <div class="col-lg-6">
+            @include('admin.layouts.components.filters.created_at_greater')
+        </div>
+        <div class="col-lg-6">
+            @include('admin.layouts.components.filters.created_at_lesser')
+        </div>
+    </div>
+
+@stop
+
+@include('admin.layouts.partials.crud.index')

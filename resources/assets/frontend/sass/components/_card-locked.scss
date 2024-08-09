@@ -1,0 +1,42 @@
+.card {
+  &--locked {
+    background: $primary;
+    overflow: hidden;
+
+    .card-body {
+      padding: 0;
+    }
+
+    .icon {
+      background: $black;
+      font-size: rem(40px);
+      color: $primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: rem(20px)
+    }
+
+    @include media-breakpoint-up(lg) {
+      .icon {
+        padding: rem(30px);
+      }
+    }
+  }
+}
+
+.dark-mode .card {
+  &--locked {
+    .card-body {
+      a {
+        border: 1px solid #eee;
+        color: #eee;
+
+        &:hover {
+          border: 1px solid $white;
+          color: $white;
+        }
+      }
+    }
+  }
+}

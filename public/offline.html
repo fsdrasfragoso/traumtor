@@ -1,0 +1,17 @@
+<div id="#main-content">
+    <div class="container mt-5 text-center">
+        <span class="fas fa-wifi-slash fa-5x"></span>
+        <h3 class="my-3 font-family-secondary">Você está desconectado... :(<h3/>
+        <button class="btn btn-primary" onclick="goBack()">
+            Voltar
+        </button>
+    </div>
+</div>
+
+<script>
+    toastr.error("Você está offline");
+
+    function goBack() {
+        window.history.back();
+    }
+</script>

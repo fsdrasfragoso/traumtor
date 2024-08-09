@@ -1,0 +1,59 @@
+.card {
+  &--list {
+    .card-body {
+      padding: 0;
+    }
+  }
+}
+
+.main__content {
+  &.grid {
+    .card {
+      &--list {
+        box-shadow: none !important;
+    
+        .card-body {
+          padding: 0;
+    
+          .list {
+            display: flex;
+            flex-flow: row wrap;
+    
+            &__item {
+              display: flex;
+              transition: .3s;
+              background: #fff;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+              flex-direction: column;
+              justify-content: space-between;
+              width: calc(50% - 8px);
+              margin-bottom: 15px;
+              border: none;
+
+              &:nth-child(odd) {
+                margin-right: 15px;
+              }
+
+              .image {
+                display: none !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.container-fluid--no-padding .card--list {
+  box-shadow: none;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  border-radius: 0;
+
+  @include media-breakpoint-up(lg) {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    border-top: 0;
+    border-radius: rem(4px);
+  }
+}

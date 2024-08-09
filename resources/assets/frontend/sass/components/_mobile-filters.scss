@@ -1,0 +1,90 @@
+.dark-mode {
+  .mobile-filters {
+    background: #212529;
+  }
+
+  .clean-filters {
+    color: $gray-200;
+  }
+}
+
+.mobile-filters {
+    background: #eee;
+    
+    &__expand {
+      box-sizing: border-box;
+      height: 50px;
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      padding: 0px 20px;
+      justify-content: space-between;
+      align-items: center;
+  
+      i {
+        color: #8b8b8b;
+      }
+    }
+  
+    &__content {
+      padding: 20px 20px;
+
+      .date-box {
+        display: flex;
+        flex-flow: row wrap;
+      }
+
+      .data-range-picker {
+        position: relative;
+        max-width: 248px;
+        min-width: 223px;
+
+        input[type=text] {
+          border: none;
+          border: 1px solid #adadad;
+          border-radius: 3px;
+          width: 100%;
+          padding: 2px;
+          padding-right: 22px;
+          padding-left: 5px;
+        }
+        
+        i {
+          position: absolute;
+          top: calc(50% - 9px);
+          right: 5px;
+          color: #000;
+        }
+      }
+
+      select {
+        border: none;
+        border: 1px solid #adadad;
+        border-radius: 3px;
+      }
+  
+      .clean-filters {
+        border: 1px solid #adadad;
+      }
+  
+      .btn-group-toggle {
+        .btn {
+          color: #adadad;
+          font-size: 12px;
+          border: 1px solid #adadad;
+  
+          &.active {
+            border-color: transparent;
+            background: #000;
+            color: #D7D600;
+          }
+        }
+      }
+  
+      .checkbox-buttons {
+        .btn {
+          border-radius: 14px;
+        }
+      }
+    }
+  }

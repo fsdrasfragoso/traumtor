@@ -1,0 +1,15 @@
+.reasons {
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    &__icon {
+      color: $previous;
+      margin-right: 15px;
+    }
+  }
+}

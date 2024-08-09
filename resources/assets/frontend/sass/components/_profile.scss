@@ -1,0 +1,249 @@
+
+.profile-avatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .avatar {
+    display: block;
+    position: relative;
+
+    img {
+      width: rem(100px);
+      height: rem(100px);
+    }
+
+    &__drop {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: all 300ms;
+      border-radius: rem(100px);
+    }
+
+    &:hover {
+      color: $white;
+      .avatar__drop {
+        opacity: 1;
+      }
+    }
+  }
+  .credits {
+    font-family: $font-family-secondary;
+    font-size: rem(13px);
+  }
+}
+
+.page-active {
+  &.is-active {
+    a {
+      color: $primary !important;
+    }
+  }
+}
+
+.full-card {
+  background-color: #DDDDDD;
+  box-shadow: none;
+
+  .card-header {
+    background-color: $white;
+  }
+
+  .card-body {
+    background-color: #DDDDDD;
+  }
+}
+
+.input-profile {
+  input, select {
+    font-family: $font-family-base !important;
+    font-style: normal !important;
+    font-weight: 500;
+    line-height: 26px;
+
+    &::placeholder {
+      font-family: $font-family-base;
+      font-style: normal !important;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+
+}
+
+.separator {
+  border-top: 2px solid rgba(153, 153, 153, 0.5);
+}
+
+.input-wrapper {
+  height: auto;
+  .input-select {
+    background: none;
+    padding: 0 15px;
+  }
+}
+
+.card-shadow {
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.15);
+  overflow: overlay;
+}
+
+.btn-sub {
+  button {
+    width: 100% !important;
+    @include media-breakpoint-up(md) {
+      width: auto !important;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    text-align: right;
+  }
+}
+
+.menu-list {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.avtr-desc {
+  font-family: Inter;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.profile-stats {
+  display: flex;
+  background: $white;
+  border-radius: rem(4px);
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
+  padding: rem(10px);
+
+  flex-wrap: wrap;
+
+  &__item {
+    flex-grow: 1;
+    text-align: center;
+    font-family: $font-family-secondary;
+    font-size: rem(14px);
+    font-weight: 300;
+    margin: rem(2px);
+
+    &__link {
+      display: block;
+      color: $body-color;
+      border-radius: rem(4px);
+      padding: rem(10px);
+      background: #f5f5f5;
+      transition: auto;
+
+      &:hover {
+        background: $primary;
+        color: $body-color;
+      }
+
+      &.active {
+        background: $primary;
+        color: $body-color;
+
+      }
+    }
+
+    .number {
+      display: block;
+      font-weight: bold;
+    }
+
+    .label {
+      display: block;
+    }
+
+
+    &:first-child {
+      border-left: 0;
+    }
+  }
+}
+
+.dark-mode {
+  .profile-avatar {
+    color: $light;
+  }
+
+  .input-wrapper {
+    height: auto;
+    .input-select {
+      background: #444444;
+      padding: 0 15px;
+    }
+  }
+
+  .separator {
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .full-card {
+    background-color: #222222;
+    box-shadow: none;
+
+    #collapseOne input, #collapseOne select {
+      color: $white;
+    }
+
+    .card-header {
+      background-color: #444444 !important;
+    }
+
+    .card-body {
+      background-color: #222222;
+    }
+  }
+
+  .profile-stats {
+    background: $dark;
+
+    &__item {
+
+      &__link {
+        color: $light;
+        background: #272727;
+        transition: auto;
+
+        &:hover {
+          background: $primary;
+          color: $body-color;
+        }
+
+        &.active {
+          background: $primary;
+          color: $body-color;
+
+        }
+      }
+    }
+  }
+}
+
+.profile-progress {
+  font-family: $font-family-secondary;
+  font-size: rem(14px);
+  font-weight: 300;
+
+  strong {
+    font-weight: bold;
+  }
+
+  .progress {
+    height: rem(4px);
+  }
+
+}

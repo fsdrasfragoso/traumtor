@@ -1,0 +1,100 @@
+.tag {
+  box-sizing: border-box;
+  display: inline-block;
+  background: $gray-500;
+  padding: 8px 9px 3px 4px;
+  color: white;
+  border-radius: 3px;
+  margin: 5px 3px;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 15px;
+
+  &.not-icon {
+    padding: 1px 6px 2px 6px;
+    font-size: 13px;
+  }
+
+  &.disabled {
+    background: $gray-300;
+    color: #fff !important;
+  }
+
+  &.checked {
+    background: $primary;
+    color: white;
+    >label {
+      >.cr {
+        border: 3px solid $gray-500;
+      }
+    }
+  }
+
+  label {
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    -webkit-user-select: none;
+    .tag-checkbox {
+      display: none;
+      + {
+        .cr {
+          >.cr-icon {
+            transform: scale(3) rotateZ(-20deg);
+            opacity: 0;
+            transition: all .3s ease-in;
+          }
+          >.cr-icon-plus {
+            transform: scale(1) rotateZ(0deg);
+            opacity: 1;
+          }
+        }
+      }
+      &:checked {
+        + {
+          .cr {
+            >.cr-icon {
+              color: #fff;
+              transform: scale(1) rotateZ(0deg);
+              opacity: 1;
+            }
+            >.cr-icon-plus {
+              transform: scale(3) rotateZ(-20deg);
+              opacity: 0;
+              transition: all .3s ease-in;
+            }
+            border-color: white;
+            transition: border-top-color 0.25s linear, border-right-color 0.25s linear 0.2s, border-bottom-color 0.25s linear 0.3s, border-left-color 0.25s linear 0.3s;
+          }
+        }
+      }
+    }
+  }
+
+  .cr {
+    position: relative;
+    display: inline-block;
+    border-radius: 15px;
+    width: 1.4em;
+    height: 1.4em;
+    float: left;
+    margin: 0 7px 4px 0;
+    box-sizing: border-box;
+    .cr-icon {
+      position: absolute;
+      font-size: .8em;
+      line-height: 0;
+      top: 55%;
+      left: 10%;
+    }
+    .cr-icon-plus {
+      position: absolute;
+      font-size: .8em;
+      line-height: 0;
+      top: 56%;
+      left: 24%;
+    }
+  }
+}

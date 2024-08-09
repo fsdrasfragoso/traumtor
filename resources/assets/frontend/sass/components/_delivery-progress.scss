@@ -1,0 +1,79 @@
+$complete: #017A7E;
+$active: #017A7E;
+$mute: #f4f4f4;
+
+#delivery-progress {
+  .progress {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    color: darken($mute, 33%);
+    background-color: transparent;
+
+    > li {
+      position: relative;
+      display: table-cell;
+      text-align: center;
+      font-size: 1.3em;
+
+      > span{
+        color: $dark;
+        font-family: $font-family-base;
+      }
+
+      &:before {
+        display: block;
+        margin: 0 auto;
+        background: $mute;
+        width: 3em;
+        height: 3em;
+        text-align: center;
+        margin-bottom: 0.25em;
+        line-height: 3em;
+        border-radius: 100%;
+        position: relative;
+        z-index: 1;
+      }
+
+      &:after {
+        content: '';
+        position: absolute;
+        display: block;
+        background: $mute;
+        width: 100%;
+        height: 0.5em;
+        top: 1.25em;
+        left: 50%;
+        margin-left: 1.5em \9
+      ;
+        z-index: 0;
+      }
+
+      &:last-child:after {
+        display: none;
+      }
+
+      &.is-complete {
+        color: $complete;
+
+        &:before,
+        &:after {
+          color: #FFF;
+          background: $complete;
+        }
+      }
+
+      &.is-active {
+        color: $active;
+
+        &:before {
+          color: #FFF;
+          background: $active;
+        }
+      }
+    }
+  }
+}

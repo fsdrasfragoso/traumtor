@@ -1,0 +1,27 @@
+// Disable sidebar toggle on IE10
+html[data-useragent*='MSIE 10.0'] {
+  .main {
+    width: calc(100% - #{$sidebar-width});
+    @include media-breakpoint-down(md) {
+      width: 0;
+    }
+  }
+
+  .sidebar-toggle {
+    display: none !important;
+  }
+
+  .sidebar {
+    width: $sidebar-width !important;
+    min-width: $sidebar-width !important;
+    @include media-breakpoint-down(md) {
+      width: 100% !important;
+      min-width: 100% !important;
+    }
+    margin-left: 0 !important;
+  }
+
+  .toggled.sidebar-collapsed {
+    margin-left: 0 !important;
+  }
+}

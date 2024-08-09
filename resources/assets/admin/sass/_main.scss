@@ -1,0 +1,15 @@
+.main {
+  width: 100%;
+  min-height: 100vh;
+  transition: $sidebar-transition;
+
+  @include media-breakpoint-down(md) {
+    overflow-y: hidden;
+  }
+
+  #main-content {
+    @include media-breakpoint-down(md) {
+      margin-top: 51px;
+    }
+  }
+}

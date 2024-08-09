@@ -1,0 +1,48 @@
+.icon-button {
+  background: none;
+  margin: 0px 3px;
+  border: none;
+  outline: none;
+  color: #bebebe;
+  cursor: pointer;
+
+  .circle-badge {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 17px;
+    height: 17px;
+    font-weight: bold;
+    border-radius: 50%;
+    background: #ea0c07;
+    right: -10px;
+    top: -6px;
+    color: $white;
+    font-family: $font-family-base;
+    font-size: 12px;
+  }
+
+  &:hover {
+    color: $primary;
+
+    span:nth-child(2) {
+      color: $primary;
+    }
+
+    .circle-badge {
+      color: $white;
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  span:nth-child(2) {
+    margin-top: 3px;
+    color: #bebebe;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+}

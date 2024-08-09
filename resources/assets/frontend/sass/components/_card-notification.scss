@@ -1,0 +1,30 @@
+.card.notification {
+  span {
+    &.time {
+      display:block;
+      color: $gray;
+      font-weight:300;
+      font-size: .8125rem;
+      line-height: 1.25rem;
+    }
+
+  }
+
+  .card-footer {
+    background: $white;
+
+    a {
+      color: $dark;
+    }
+  }
+}
+
+.dark-mode .card.notification {
+  .card-footer {
+    background: $dark;
+
+    a {
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.clean-search {
+  color: $dark;
+
+  &:hover {
+    color: $dark;
+  }
+}
+
+.dark-mode .clean-search {
+  color: $light;
+}

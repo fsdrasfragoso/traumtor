@@ -1,0 +1,69 @@
+.theySelection {
+  cursor: pointer;
+  background-color: #b8b796 !important;
+}
+
+.theySelection:hover {
+  background-color: #77765e !important;
+}
+
+.mySelection {
+  background-color: #dddc00 !important;
+}
+
+.mySelection:hover {
+  background-color: #b4b302 !important;
+  cursor: pointer;
+}
+
+.mySelection > .mySelection:hover {
+  background-color: #939200 !important;
+}
+
+.mySelection > .mySelection > .mySelection:hover {
+  background-color: #a3a34c !important;
+}
+
+.mySelection > .mySelection > .mySelection > .mySelection:hover {
+  background-color: #787846 !important;
+}
+
+.tolltip {
+  position: absolute !important;
+  display: inline-block !important;
+  background-color: black !important;
+  padding: 3px 8px !important;
+  opacity: 100 !important;
+  border-radius: 6px;
+}
+
+.tolltip > span {
+  color: white;
+  font-size: 1.2em;
+  padding: 8px !important;
+  position: relative !important;
+  top: -6px;
+}
+
+.tolltipButton {
+  padding: 10px !important;
+  color: #dddc00 !important;
+  font-size: 1.8em !important;
+  cursor: pointer;
+}
+
+.tolltipButton:active {
+  color: red !important;
+}
+
+.errorSelect {
+  position: fixed !important;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50px);
+  font-size: 100px;
+  z-index: 1000;
+  display: none;
+  color: red !important;
+}
+

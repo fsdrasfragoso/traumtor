@@ -1,0 +1,19 @@
+
+.bump-offer {
+  background: #FEF9E3;
+  border: 2px dashed $red;
+  padding: rem(15px);
+  font-family: $font-family-secondary;
+  font-size: rem(14px);
+  font-weight: 300;
+
+  p {
+    margin: 0;
+  }
+}
+
+input#bump_offer_id {
+	width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}

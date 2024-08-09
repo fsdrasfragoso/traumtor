@@ -1,0 +1,25 @@
+.tags {
+  .list-group {
+    &-item {
+      background-color: transparent;
+
+      .badge {
+        color: $white;
+        background-color: $dark;
+      }
+    }
+  }
+}
+
+.dark-mode {
+  .tags {
+    .list-group {
+      &-item {
+        .badge {
+          color: #212529;
+          background-color: #f6f6f6;
+        }
+      }
+    }
+  }
+}

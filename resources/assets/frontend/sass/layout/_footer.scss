@@ -1,0 +1,93 @@
+.footer {
+  flex-shrink: 0;
+  color: #656565;
+  padding-top: rem(30px);
+  padding-bottom: rem(30px);
+  font-family: $font-family-secondary;
+  font-size: rem(13px);
+  line-height: rem(20px);
+  font-weight: 300;
+  display: none;
+
+  @include media-breakpoint-up(lg) {
+    display: block;
+  }
+  a {
+    color: $body-color;
+    text-decoration: underline;
+    transition: all 300ms;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &--login {
+    padding-top: rem(30px);
+    padding-bottom: rem(30px);
+    color: #8b8b8b;
+    display: block;
+
+    a {
+      color: #bebebe;
+      text-decoration: underline;
+      transition: all 300ms;
+    }
+  }
+
+  &__permission-use-cookies{
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    width: 100%;
+    z-index: 99999;
+    .permission-use-cookies-content {
+      background-color: #171717;
+      display: flex;
+      flex-direction :column;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 15px;
+      margin: auto;
+    }
+
+    .permission-use-cookies-message{
+      font-family: $font-family-base;
+      color: #ffffff;
+    }
+    .permission-use-cookies-message-link{
+      text-decoration: underline;
+      color: #dcdc30;
+    }
+    .permission-use-cookies-actions{
+      margin : auto;
+    }
+    .permission-use-cookies-button {
+      font-family: $font-family-base;
+      border-radius: 5px;
+      background-color: #dcdc30;
+      color: #171717;
+    }
+    .permission-use-cookies-button:hover {
+      color: #171717;
+    }
+    .permission-use-cookies-button:active{
+      color: #171717;
+    }
+    @media (min-width: 1024px) {
+      bottom: 0;
+      font-size: 14px;
+
+      .permission-use-cookies-content {
+        flex-direction: row;
+        width: 80%;
+      }
+      .btn {
+        margin-top: 0;
+      }
+    }
+
+  }
+
+}

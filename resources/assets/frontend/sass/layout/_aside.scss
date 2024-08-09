@@ -1,0 +1,148 @@
+
+.dark-mode {
+  .aside {
+    .menu {
+      border: 1px solid $dark;
+
+      &__item {
+        border-top: 1px solid $gray-900;
+
+        &.is-active {
+          .menu__item__link {
+            background: $gray-900;
+          }
+  
+          + .collapse.show {
+            border-top: 1px solid $border-color;
+            
+            .menu__item {
+              border: none;
+    
+              .menu__item__link {
+                background: $gray-900;
+              }
+            }
+          }
+        }
+
+        &[aria-expanded=true] {
+          .menu__item__link {
+            background: $gray-900;
+          }
+  
+          + .collapse.show {
+            border-top: 1px solid $border-color;
+            
+            .menu__item {
+              border: none;
+    
+              .menu__item__link {
+                background: $gray-900;
+              }
+            }
+          }
+        }
+
+        &__link {
+          background: $dark;
+          color: $light;
+          transition: auto;
+        }
+      }
+    }
+  }
+}
+
+.aside {
+  padding: 10px;
+  margin: -10px;
+
+  &.sticky {
+    position: fixed;
+    overflow-y: auto;
+    overflow-scrolling: touch;
+    max-height: calc(100% - 70px);
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+  }
+
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid $border-color;
+    border-radius: rem(4px);
+
+    &__item {
+      border-top: 1px solid $border-color;
+
+      &[aria-expanded=true] {
+        border-bottom: 1px solid #fff;
+      }
+
+      &:first-child {
+        border-top: 0;
+      }
+
+      &__link {
+        display: flex;
+        align-items: center;
+        padding: rem(15px) rem(30px);
+        background: #F4F4F4;
+        color: $body-color;
+        font-family: $font-family-secondary;
+        font-size: rem(14px);
+        line-height: rem(22px);
+        text-transform: uppercase;
+        transition: auto;
+
+        .fa-2x {
+          font-size: rem(22px);
+        }
+
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      &.is-active {
+        .menu__item__link {
+          background: $white;
+        }
+
+        + .collapse.show {
+          border-top: 1px solid $border-color;
+          
+          .menu__item {
+            border: none;
+  
+            .menu__item__link {
+              background: #fff;
+            }
+          }
+        }
+      }
+
+      &[aria-expanded=true] {
+        .menu__item__link {
+          background: $white;
+        }
+
+        + .collapse.show {
+          border-top: 1px solid $border-color;
+          
+          .menu__item {
+            border: none;
+  
+            .menu__item__link {
+              background: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}

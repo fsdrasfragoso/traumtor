@@ -1,0 +1,13 @@
+.card {
+
+  &--login {
+
+    border-radius: 4px;
+    box-shadow: none;
+
+    .card-body {
+      padding: rem(30px);
+    }
+  }
+
+}

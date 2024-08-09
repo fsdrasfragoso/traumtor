@@ -1,0 +1,156 @@
+
+.font-family-secondary {
+  font-family: $font-family-secondary;
+}
+
+.border-dashed {
+  border-style: dashed;
+}
+.p-6 {
+  padding: 6rem;
+}
+
+.p-col {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.p-sm-col {
+  @include media-breakpoint-up(sm) {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+.border-top {
+  border-color: rgba(0,0,0,.1) !important;
+}
+
+.border-top-primary {
+  border-top: 3px solid $primary;
+}
+
+.border-top-cancel {
+  border-top: 3px solid $canceled;
+}
+
+.border-bottom {
+  border-color: rgba(0,0,0,.1) !important;
+}
+
+.content-dark .border-top {
+  border-color: rgba(255,255,255,.2) !important;
+}
+
+.content-dark .border-bottom {
+  border-color: rgba(255,255,255,.2) !important;
+}
+
+$fractions-collection: (25, 50, 75);
+
+@for $i from 0 to 5 {
+  @if($i != 0){
+    .font-size-#{$i}x {
+      font-size: #{$i}rem !important;
+    }
+  }
+
+  @for $x from 0 to length($fractions-collection) {
+    .font-size-#{$i}#{'_'}#{nth($fractions-collection, $x+1)}x {
+      font-size: #{$i}#{'.'}#{nth($fractions-collection, $x+1)}rem !important;
+    }
+  }
+
+}
+
+.bg-black {
+  background-color: $black !important;
+}
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .fs#{$infix}-12 {
+      font-size: rem(12px) !important;
+      line-height: 1.2em;
+    }
+
+    .fs#{$infix}-14 {
+      font-size: rem(14px) !important;
+      line-height: 1.2em;
+    }
+
+    .fs#{$infix}-16 {
+      font-size: rem(16px) !important;
+      line-height: 1.2em;
+    }
+
+    .fs#{$infix}-20 {
+      font-size: rem(20px) !important;
+      line-height: 1.2em;
+    }
+
+    .fs#{$infix}-24 {
+      font-size: rem(24px) !important;
+      line-height: 1.2em;
+    }
+
+    .fs#{$infix}-32 {
+      font-size: rem(32px) !important;
+      line-height: 1.2em;
+    }
+
+    .fs#{$infix}-48 {
+      font-size: rem(48px) !important;
+      line-height: 1.2em;
+    }
+  }
+}
+
+table td.shrink,
+table th.shrink {
+  white-space: nowrap;
+  width: 1px;
+}
+
+
+.icon-circle {
+  display: inline-block;
+  text-align: center;
+  font-size: 12px;
+  line-height: 24px;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background: $primary;
+  color: $white;
+  padding-left: 1px;
+}
+
+.badge-transparent {
+  background: rgba(0,0,0,.5);
+  color: $white;
+}
+
+textarea.not-resizable {
+  resize: none;
+}
+
+.overflow-scroll {
+  overflow: scroll !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.overflow-auto {
+  overflow: auto !important;
+}
+
+.overflow-visible {
+  overflow: visible !important;
+}
+
+.color-black {
+  color: $black !important;
+}

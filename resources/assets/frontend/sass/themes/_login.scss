@@ -1,0 +1,12 @@
+
+body.login {
+  background: $dark;
+  height: 100%;
+
+  .wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

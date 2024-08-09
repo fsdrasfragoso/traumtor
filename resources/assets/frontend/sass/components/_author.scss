@@ -1,0 +1,68 @@
+.author {
+  color: $dark;
+  font-family: Inter;
+  font-style: normal;
+
+  display: flex;
+  flex-direction: row;
+
+  &:hover {
+
+    .author__title,
+    .author__description {
+      color: $primary;
+    }
+  }
+
+  &__avatar > img {
+    height: 150px;
+    min-width: 150px;
+    max-width: 150px;
+    border-radius: 50%;
+    
+    @media (min-width: 1600px) {
+      height: 194px;
+      min-width: 194px;
+      max-width: 194px;
+    }
+  }
+
+  &__title {
+    display: block;
+    font-size: (18px);
+    font-weight: bold;
+
+  }
+
+  &__description {
+    margin-top: 7px;
+    margin-bottom: 11px;
+
+  }
+
+  &__summary {
+    font-weight: 300;
+    background: none !important;
+    padding: none !important;
+    border: none !important;
+
+  }
+
+  &__description,
+  &__summary {
+    display: block;
+
+    font-family: $font-family-secondary;
+    font-size: (13px);
+  }
+}
+
+.dark-mode .author {
+
+  &__title,
+  &__description,
+  &__role,
+  &__summary {
+    color: $light;
+  }
+}

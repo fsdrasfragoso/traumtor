@@ -1,0 +1,149 @@
+.like-button { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: #7b7b6b !important;
+    cursor: pointer;
+
+    &:hover {
+        color: #97960d !important;
+    }
+
+    &--liked &__container {
+        i {
+            &.fas {
+                display: inherit;
+            }
+
+            &.fal {
+                display: none;
+            }
+        }
+    }
+
+    &__total-counter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        margin-right: -70px;
+        color: $gray-600;
+        font-family: $font-family-base;
+        font-size: 12px;
+
+        &.fader {
+            animation: fade-in 1400ms forwards;
+        }
+    }
+
+    &__container {
+        color: inherit;
+        z-index: 1;
+        
+        i {
+            font-size: inherit;
+
+            &.fal {
+                display: inherit;
+            }
+
+            &.fas {
+                display: none;
+            }
+        }
+
+        &.scale {
+            animation: scaleAndBack 700ms forwards;
+        }
+    }
+
+    &__click-counter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        background-color: $primary;
+        border-radius: 50%;
+        z-index: 1;
+        opacity: 0;
+        font-family: $font-family-base;
+        font-size: 12px;
+        color: $white;
+
+        &.active {
+            animation: bump-in 1s forwards;
+        }
+    }
+
+    &__remove {
+        display: none;
+        position: absolute;
+        color: $gray-400;
+        font-size: 17px;
+        height: 100%;
+        opacity: 0;
+        align-items: center;
+        top: 0;
+
+        &.showed {
+            display: flex;
+            transform: translateX(-30px);
+            opacity: 1;
+            transition: all 1s;
+        }
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bump-in {
+    0% {
+        transform: translateY(-30px) scale(0.9);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-50px) scale(1);
+        opacity: 1;
+    }
+
+    99% {
+        transform: translateY(-60px) scale(1);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleAndBack {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,9 @@
+.cke_panel_list {
+  @extend .content;
+}
+
+.cke_editable {
+  @extend .content;
+
+  margin: 10px;
+}

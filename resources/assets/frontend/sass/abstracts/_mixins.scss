@@ -1,0 +1,55 @@
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin button-color($color) {
+  &,
+  &:focus,
+  &.focus,
+  &.disabled,
+  &:disabled,
+  .show > &.dropdown-toggle {
+    color: $color;
+  }
+}
+
+@mixin button-color-hover($color) {
+  &:hover:not(:disabled):not(.disabled),
+  &.hover:not(:disabled):not(.disabled) {
+    color: $color;
+  }
+}
+
+@mixin button-color-active($color) {
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    color: $color;
+  }
+}

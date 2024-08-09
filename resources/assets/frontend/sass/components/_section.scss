@@ -1,0 +1,22 @@
+
+
+.section {
+
+  &__header {
+    padding: rem(30px) rem(20px);
+
+
+    @include media-breakpoint-up(lg) {
+      padding: rem(50px) 0;
+    }
+  }
+
+  &__body {
+    padding: 0 rem(20px);
+
+    @include media-breakpoint-up(lg) {
+      padding: 0;
+    }
+  }
+
+}

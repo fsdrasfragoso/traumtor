@@ -1,0 +1,19 @@
+.credit-card {
+  &.active {
+    background: #ccc;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.dark-mode .credit-card {
+  &.active {
+    background: #222;
+  }
+}
+
+.dark-mode .dark-mode-img {
+  filter: invert(100%);
+}

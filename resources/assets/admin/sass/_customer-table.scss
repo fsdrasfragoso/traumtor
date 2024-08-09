@@ -1,0 +1,13 @@
+.footballer-data {
+  &.requesting {
+    cursor: pointer;
+
+    .custom-checkbox {
+      display: block;
+    }
+  }
+
+  .custom-checkbox {
+    display: none;
+  }
+}

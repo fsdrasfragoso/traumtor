@@ -1,0 +1,40 @@
+.checkout {
+  background: #f4f4f4;
+
+  .footer {
+    display: block;
+    background: $dark;
+    margin-top: rem(30px);
+    color: $white;
+
+    .cards {
+      img {
+        height: rem(20px);
+      }
+    }
+
+    a {
+      color: $white;
+    }
+  }
+
+  &__engagement-phrase {
+    color: $gray-500 !important;
+    font-size: small;
+    line-height: 1.5em;
+  }
+
+  &__charge-notification-text {
+    color: $black !important;
+    font-size: small;
+    line-height: 1.5em;
+  }
+}
+
+#engagement-phrase {
+  display: none;
+
+  @media (max-width: 991px) {
+    display: block;
+  }
+}

@@ -1,0 +1,15 @@
+
+.breadcrumb {
+  padding: 0;
+  background: none;
+  font-size: rem(14px);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  display: inline-block;
+  padding-right: 0.5rem;
+  color: #6c757d;
+  font-weight: lighter;
+  font-family: "Font Awesome 5 Pro";
+  content: "\f105";
+}

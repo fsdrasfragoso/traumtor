@@ -1,0 +1,5 @@
+*.sqlite
+*.sqlite-journal
+clean_dump.sql
+database.sql
+qualocep.sql

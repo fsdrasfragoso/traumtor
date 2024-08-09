@@ -1,0 +1,14 @@
+
+.carousel {
+  overflow-x: scroll;
+  overflow-scrolling: touch;
+  overflow-y: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+
+  .card--content {
+    width: 200px;
+    flex-shrink: 0;
+    margin-right: rem(20px);
+  }
+}

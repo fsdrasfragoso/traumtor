@@ -1,0 +1,57 @@
+.dark-mode {
+  .contact-box {
+    background: #2E2E2E;
+    color: $gray-200;
+
+    span {
+        color: $gray-200;
+    }
+
+    i {
+        color: $gray-200;
+    }
+
+    .desc {
+        color: $gray-500;
+    }
+  }
+}
+
+.contact-box {
+    position: relative;
+    border-left: 8px solid $primary;
+    background: #f4f4f4;
+
+    a {
+        color: #000;
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    .desc {
+        color: rgb(128, 128, 128);
+    }
+
+    &__contact {
+        margin: 5px 0px;
+    }
+
+    &:before {
+        content: "";
+        display: none;
+        position: absolute;
+        left: -25px;
+        top: calc(50% - 12px);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 13px 20px 13px 0;
+        border-color: transparent $primary transparent transparent;
+        
+        @include media-breakpoint-up(md) {
+            display: initial;
+        }
+    }
+}

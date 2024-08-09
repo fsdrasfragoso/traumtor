@@ -1,0 +1,13 @@
+.grid-toggle {
+  cursor:pointer;
+  user-select: none;
+
+  i {
+    font-size: 25px;
+  }
+
+  span {
+    font-family: $font-family-secondary;
+    font-weight: 300;
+  }
+}

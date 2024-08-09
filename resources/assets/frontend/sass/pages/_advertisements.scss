@@ -1,0 +1,79 @@
+#advertisement {
+  position: fixed;
+  z-index: 9999;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+
+  .ad-close-btn {
+    text-shadow: 0 1px 7px #fff;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    border: none;
+    box-shadow: none;
+  }
+
+  &.ad-top-banner {
+    @include media-breakpoint-up(lg) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.ad-side-banner {
+    right: 0;
+    top: 50%;
+    transform: translate(0%, -50%);
+
+    @media (max-height: 650px) {
+      overflow: scroll;
+    }
+  }
+
+  &.ad-popup {
+    .ad-close-btn {
+      top: 4rem;
+    }
+
+    right: 0;
+    bottom: rem(55px);
+    @include media-breakpoint-up(lg) {
+      bottom: 0;
+    }
+  }
+}
+
+#advertisement-iframe {
+  background: $white;
+}
+
+#ad-popup {
+  .ad-header {
+    background-color: $gray-900;
+    min-height: 40px;
+    cursor: pointer;
+  }
+  .ad-header-title {
+    color: $primary;
+  }
+  .ad-header-resize-btn {
+    color: $primary;
+    cursor: pointer;
+  }
+  .ad-body {
+    background-color: $primary;
+    color: $gray-900;
+    position: relative;
+
+    a {
+      color: $cyan;
+      font-weight: bold;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,130 @@
+.legal-contract{
+  .modal-dialog{
+    width: 100%;
+    max-width: 1000px !important;
+  }
+  .modal-body{
+    margin: 0;
+    max-height: 78vh;
+    overflow-x: overlay;
+  }
+
+  .modal-header{
+    height: 50px;
+  }
+
+  h1{
+    font-size: 20px;
+    text-decoration: underline;
+    text-align: center;
+  }
+
+  h2{
+    font-size: 18px;
+    margin: 25px 0;
+  }
+
+  ul.head{
+    padding-left: 40px;
+    margin-bottom: 2rem;
+    list-style-type: upper-alpha;
+
+    li{
+      margin: 18px 0;
+      font-size: 18px;
+    }
+
+  }
+
+  ul{
+    margin-bottom: 0;
+    padding-left: 20px;
+  }
+
+  li{
+    font-size: 15px;
+    color: #464444;
+    margin: 5px 0;
+  }
+
+  table{
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  td{
+    border: 2px solid #464444;
+    color: #464444;
+    padding: 5px;
+    font-size: 15px;
+    width: 50%;
+  }
+  td.data-title{
+    font-weight: bold;
+    background-color: #dcdada;
+  }
+  .center{
+    text-align: center;
+  }
+
+  p{
+    font-size: 18px;
+    color: #464444;
+    font-family: $font-family-base;
+    margin: 20px 0;
+  }
+}
+
+.dark-mode {
+  .modal-content {
+    background: $dark;
+  }
+
+  .modal-header {
+    color: $light;
+    background: $dark;
+
+    .close {
+      color: white;
+    }
+  }
+  .modal-body {
+    color: $light;
+    background: $dark;
+
+    ul.head li {
+      color: $light;
+    }
+
+    table tbody tr td {
+      color: $light;
+
+      &.data-title {
+        color: $dark;
+      }
+
+      ul li {
+        color: $light;
+      }
+    }
+
+    p {
+      color: $light;
+    }
+  }
+
+  .modal-footer {
+    background: $dark;
+  }
+
+  .table {
+    thead {
+      color: $light;
+      background: $dark;   
+    }
+    tbody {
+      color: $light;
+      background: $dark;
+    }
+  }  
+}

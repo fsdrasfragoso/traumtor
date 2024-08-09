@@ -1,0 +1,189 @@
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group > input,
+.form-label-group > select,
+.form-label-group > label {
+  height: rem(50px);
+}
+
+.form-label-group > input,
+.form-label-group > select,
+.form-label-group > label,
+.form-label-group > textarea {
+  padding: rem(12px);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.form-label-group .form-control {
+  font-size: rem(18px);
+  font-weight: bold;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  border-bottom: 1px solid $border-color;
+
+  &:focus {
+    box-shadow: none;
+    border-bottom-color: $primary;
+  }
+}
+
+.dark-mode {
+  .form-label-group > select,
+  .form-label-group > textarea {
+    color: $light;
+    background: $dark;
+  }
+
+  .form-label-group .form-control {
+    color: $light;
+  }
+  
+  .form-control.is-selected {
+    color: $light;
+  }
+}
+
+.form-label-group .form-control.is-invalid {
+  border-bottom-color: $red;
+  background-size: rem(16px) rem(16px);
+  background-position: center right 0;
+}
+
+.form-label-group .form-control.is-valid {
+  border-bottom-color: $green;
+  background-size: rem(16px) rem(16px);
+  background-position: center right 0;
+}
+
+.form-label-group > label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 0; /* Override default `<label>` margin */
+  line-height: 1.5;
+  color: $body-color;
+  pointer-events: none;
+  cursor: text; /* Match the input under the label */
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  transition: all 0.1s ease-in-out;
+  font-size: rem(18px);
+  font-weight: 300;
+}
+
+.dark-mode .form-label-group > label {
+  color: $light;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::placeholder {
+  color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown),
+.form-label-group select,
+.form-label-group textarea {
+  padding-top: 1.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.form-label-group input:not(:placeholder-shown) ~ label,
+.form-label-group select.is-selected ~ label,
+.form-label-group textarea:not(:invalid) ~ label {
+  // FIXME Corrigir seletor da textarea para suportar textareas que não são required.
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 13px;
+  font-family: $font-family-secondary;
+}
+
+.form-label-group > input[required] ~ label::after,
+.form-label-group > select[required] ~ label::after,
+.form-label-group > textarea[required] ~ label::after {
+  content: "*";
+  margin-left: rem(4px);
+  color: $red;
+}
+
+.form-label-group > select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.form-label-group > select ~ label::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  margin-top: -3px;
+  border-top: 6px solid $dark;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  pointer-events: none;
+}
+
+.form-label-group > select.form-control.is-invalid {
+  background-image: none;
+}
+
+.form-label-group > select.form-control.is-invalid ~ label::before {
+  border-top-color: $red;
+}
+
+.form-label-group > select.form-control.is-valid {
+  background-image: none;
+}
+
+.form-label-group > select.form-control.is-valid ~ label::before {
+  border-top-color: $green;
+}
+
+/* Fallback for Edge
+-------------------------------------------------- */
+@supports (-ms-ime-align: auto) {
+  .form-label-group > label {
+    display: none;
+  }
+  .form-label-group input::-ms-input-placeholder,
+  .form-label-group select::-ms-input-placeholder {
+    color: #777;
+  }
+}
+
+/* Fallback for IE
+-------------------------------------------------- */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .form-label-group > label {
+    display: none;
+  }
+  .form-label-group input:-ms-input-placeholder,
+  .form-label-group select:-ms-input-placeholder {
+    color: #777;
+  }
+}

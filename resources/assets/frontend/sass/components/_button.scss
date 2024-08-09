@@ -1,0 +1,82 @@
+
+.btn {
+  font-family: $font-family-secondary;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: rem(14px);
+}
+
+.btn-lg {
+  font-size: rem(14px);
+  line-height: rem(24px);
+  padding: rem(17px) 1.75rem;
+
+  .fa-2x {
+    font-size: rem(24px);
+    line-height: rem(24px);
+  }
+}
+
+.btn-secondary {
+  @include button-color($body-color);
+  @include button-color-hover($body-color);
+  @include button-color-active($body-color);
+}
+
+.btn-outline-secondary {
+  @include button-color($body-color);
+  @include button-color-hover($body-color);
+  @include button-color-active($body-color);
+}
+
+
+.btn.btn-outline-primary {
+  color: $body-color;
+  border-width: 2px;
+  padding-top: rem(6px);
+  padding-bottom: rem(6px);
+}
+
+.btn.btn-sm.btn-outline-primary {
+  padding-top: rem(3px);
+  padding-bottom: rem(3px);
+}
+
+.btn.btn-lg.btn-outline-primary {
+  font-weight: bold;
+  padding-top: rem(13px);
+  padding-bottom: rem(13px);
+}
+
+@each $color, $value in $social-colors {
+  .btn-#{$color} {
+    @include button-variant($value, $value);
+    @include button-color($white);
+    @include button-color-hover($white);
+  }
+}
+.dark-mode {
+  .btn.btn-outline-primary {
+    color: $light;
+    &:hover {
+      color: $dark;
+    }
+  }
+
+  .btn.btn-outline-secondary {
+    color: $light;
+  }
+}
+
+.to-top-btn {
+  position: fixed;
+  bottom : 5%;
+  right  : 5%;
+}
+@media only screen and (max-width: 780px) {
+  .to-top-btn {
+    position: fixed;
+    bottom : 15%;
+    right  : 6%;
+  }
+}

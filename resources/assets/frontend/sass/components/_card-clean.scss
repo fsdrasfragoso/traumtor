@@ -1,0 +1,16 @@
+.card {
+  &--clean {
+    background: none;
+    box-shadow: none;
+
+    .card-body {
+      padding: 0 rem(20px);
+    }
+
+    @include media-breakpoint-up(lg) {
+      .card-body {
+        padding: 0;
+      }
+    }
+  }
+}

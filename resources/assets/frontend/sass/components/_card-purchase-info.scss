@@ -1,0 +1,14 @@
+.card {
+  &--purchase-info {
+    .icon {
+      width: rem(30px);
+      height: rem(30px);
+      background: $primary;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $border-color;
+    }
+  }
+}

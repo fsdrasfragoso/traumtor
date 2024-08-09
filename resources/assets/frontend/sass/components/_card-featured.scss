@@ -1,0 +1,51 @@
+.card {
+  &--featured {
+    overflow: hidden;
+
+    .card-body {
+      padding: 0;
+
+      .list {
+        &__item {
+          padding: 0;
+
+
+          &__link {
+            height: rem(60px);
+            overflow: hidden;
+
+            .title {
+              max-height: rem(40px);
+              overflow: hidden;
+              font-size: rem(16px);
+              line-height: rem(20px);
+              padding-left: rem(20px);
+              padding-right: rem(20px);
+            }
+          }
+
+          .image {
+            width: rem(60px);
+            height: rem(60px);
+            border-radius: rem(0px);
+
+            &__container {
+              width: rem(60px);
+              height: rem(60px);
+            }
+          }
+
+        }
+      }
+
+      @include media-breakpoint-up(lg) {
+        .list {
+          &__item {
+            padding: 0;
+          }
+        }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,41 @@
+div.image-zoom {
+  position: relative;
+  display: inline-block;
+
+  &.align-center {
+    display: block;
+  }
+
+  &.align-right {
+    float: right;
+  }
+
+  &.align-left {
+    float: left;
+  }
+
+  i {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-color: #2E2E2E;
+    padding: 8px;
+    border-radius: 10px;
+    color: #fff;
+  }
+
+  .cantZoom {
+    + i {
+      display: none;
+    }
+  }
+}
+
+p.image-zoom.cantZoom, figure.image-zoom.cantZoom {
+    i {
+      display: none;
+    }
+}

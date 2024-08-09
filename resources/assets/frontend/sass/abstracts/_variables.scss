@@ -1,0 +1,238 @@
+
+$font-weight-bolder: bold;
+$font-weight-bold: bold;
+
+// Colors
+
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$gray: #656565;
+$gray2:     #3c3c3c;
+$black:    #000;
+$shadow: rgba(0, 0, 0, 0.15);
+$blue-link: #0645AD;
+
+$blue:    #007bff;
+$indigo:  #6610f2;
+$purple:  #6f42c1;
+$pink:    #e83e8c;
+$red:     #dc3545;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #28a745;
+$teal:    #20c997;
+$cyan:    #17a2b8;
+
+$primary:       #017A7E;
+$previous:      #017A7E;
+$secondary:     #E8E8E8;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+$light:         #F6F6F6;
+$dark:          #2E2E2E;
+
+
+$pending: gold;
+$trial: #6a89cc;
+$active: green;
+$active_wr: purple;
+$inactive: #e51840;
+$failed: orange;
+$canceled: darkred;
+$delayed: salmon;
+$gift: #ff00ff;
+$duplicated: lightgray;
+$changed: #8a6d3b;
+$active_changed: #458a3b;
+$expired: #758a3b;
+$upgraded: #30cbff;
+$scheduled: #1cb08a;
+$suspended: #f0f0f0;
+$paid: green;
+$review: darkorange;
+$created: $gray-700;
+$sent: $gray-900;
+$posted: darkblue;
+$finished: lightgreen;
+$draft: $warning;
+$published: $success;
+$delivered: $green;
+$not-found: $red;
+$returned: $purple;
+$placeholder: #c4c4c4;
+$enter-button-light: #017A7E;
+$enter-button-dark: #66002e;
+$font-dark: #222222; 
+$bg-container: #ededed;
+$theme-colors: (
+  "primary": $primary,
+  "previous": $previous,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+
+  "blue-link": $blue-link,
+  "blue": $blue,
+
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500,
+  "gray-600": $gray-600,
+  "gray-700": $gray-700,
+  "gray-800": $gray-800,
+  "gray-900": $gray-900,
+
+  "status-pending": $pending,
+  "status-trial": $trial,
+  "status-active": $active,
+  "status-active_wr": $active_wr,
+  "status-inactive": $inactive,
+  "status-failed": $failed,
+  "status-canceled": $canceled,
+  "status-delayed": $delayed,
+  "status-gift": $gift,
+  "status-duplicated": $duplicated,
+  "status-changed": $changed,
+  "status-active_changed": $active_changed,
+  "status-expired": $expired,
+  "status-upgraded": $upgraded,
+  "status-scheduled": $scheduled,
+  "status-suspended": $suspended,
+  "status-paid": $paid,
+  "status-review": $review,
+  "status-created": $created,
+  "status-sent": $sent,
+  "status-success": $success,
+  "status-authorized": $active,
+  "status-posted": $posted,
+  "status-finished": $finished,
+  "status-draft": $draft,
+  "status-published": $published,
+  "status-delivered": $delivered,
+  "status-not_found": $not-found,
+  "status-returned": $returned,
+);
+
+$social-colors: (
+  "facebook": #3b5998,
+  "twitter": #1da1f2,
+  "google": #dc4e41,
+  "youtube": #f00,
+  "vimeo": #1ab7ea,
+  "dribbble": #ea4c89,
+  "github": #181717,
+  "instagram": #e4405f,
+  "pinterest": #bd081c,
+  "flickr": #0063dc,
+  "bitbucket": #0052cc
+);
+
+$body-bg:                   $white;
+$body-color:                #2E2E2E;
+
+$border-color: #E8E8E8;
+$border-radius:               .25rem !default;
+$border-radius-lg:            .25rem !default;
+$border-radius-sm:            .2rem !default;
+
+
+// Spacing
+
+$spacer: 1rem !default;
+$spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+    (
+      0: 0,
+      1: ($spacer * .5),
+      2: ($spacer * 1),
+      3: ($spacer * 2),
+      4: ($spacer * 3),
+      5: ($spacer * 4),
+      6: ($spacer * 5)
+    ),
+    $spacers
+);
+// Fonts
+
+$font-family-sans-serif:      "Roboto", "Noto Serif JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:            $font-family-sans-serif !default;
+
+$font-family-secondary:       "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+
+// Buttons + Forms
+$input-border-color: $border-color;
+$input-btn-padding-y:         .4375rem;
+$input-btn-padding-x:         .875rem;
+
+$input-btn-padding-y-sm:      .375rem;
+$input-btn-padding-x-sm:      .75rem;
+
+$input-btn-padding-y-lg:      .875rem;
+$input-btn-padding-x-lg:      1.75rem;
+
+// Inputs
+
+$input-padding-y:                       $input-btn-padding-y;
+$input-padding-x:                       $input-btn-padding-y;
+
+$input-padding-y-sm:                    $input-btn-padding-y-sm;
+$input-padding-x-sm:                    $input-btn-padding-y-sm;
+
+$input-padding-y-lg:                    $input-btn-padding-y-lg;
+$input-padding-x-lg:                    $input-btn-padding-y-lg;
+
+
+// Transitions
+
+$transition-appearance: background .4s ease-in-out, color .4s ease-in-out;
+$transition-appearance-slow: background .6s ease-in-out, color .6s ease-in-out;
+$transition-appearance-fast: background .1s ease-in-out, color .1s ease-in-out;
+
+$table-border-color:          $border-color;
+
+$hamburger-padding-x           : 15px !default;
+$hamburger-padding-y           : 15px !default;
+$hamburger-layer-width         : 22px !default;
+$hamburger-layer-height        : 2px !default;
+$hamburger-layer-spacing       : 4px !default;
+$hamburger-layer-color         : #BEBEBE !default;
+$hamburger-layer-border-radius : 4px !default;
+$hamburger-hover-opacity       : 1 !default;
+$hamburger-active-layer-color  : $primary !default;
+$hamburger-active-hover-opacity: 1;
+
+
+$slick-dot-color: $gray;
+$slick-dot-color-active: $primary;
+$slick-arrow-color: $gray;
+
+
+$dotWidth: 10px;
+$dotHeight: 10px;
+$dotRadius: calc($dotWidth/2);
+
+$dotColor: $gray;
+$dotBgColor: $dotColor;
+$dotBeforeColor: $dotColor;
+$dotAfterColor: $dotColor;
+
+$dotSpacing: $dotWidth + calc($dotWidth/2);

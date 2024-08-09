@@ -1,0 +1,16 @@
+.cursor-grab {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.cursor-link {
+  cursor: pointer;
+  cursor: -moz-pointer;
+  cursor: -webkit-pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

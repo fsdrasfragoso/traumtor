@@ -1,0 +1,42 @@
+.social_bar {
+
+    font-size: 30px !important;
+
+    a {
+        box-sizing: unset;
+        z-index: 0;
+
+        span {
+            color: #7b7b6b;
+
+            &:hover{
+                color: #97960d;
+            }
+        } 
+    }
+    
+    &__social-net-buttons {
+        float: right;
+        box-sizing: unset !important;
+        z-index: 1;
+        position: absolute;
+        background-color: white;
+
+        a {
+            font-size: 20px;
+            color: #7b7b6b;
+            padding: 0 3px;
+            background-color: white;
+
+            &:hover {
+                color: #97960d;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .social_bar__social-net-buttons {
+        position: relative;
+    }
+}

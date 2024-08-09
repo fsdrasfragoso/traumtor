@@ -1,0 +1,27 @@
+span.image-zoom, figure, p.image-zoom {
+  position: relative;
+  height: 100%;
+
+  &:before {
+    content: "\26B2";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    transform: rotate(45deg);
+    border-radius: 50%;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #2E2E2E;
+    color: #fff;
+  }
+
+  &.cantZoom {
+    &:before {
+      content: none;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.card {
+  &--attachment {
+    background: $primary;
+    overflow: hidden;
+    font-family: $font-family-secondary;
+    color: $dark;
+
+    .card-body {
+      padding: 0;
+    }
+
+    .icon {
+      background: $dark;
+      font-size: rem(40px);
+      color: $primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: rem(20px)
+    }
+
+    @include media-breakpoint-up(lg) {
+      .icon {
+        padding: rem(30px);
+      }
+    }
+
+    @include media-breakpoint-up(sm) {
+      max-width: 350px;
+    }
+  }
+
+}

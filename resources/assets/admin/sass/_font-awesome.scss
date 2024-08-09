@@ -1,0 +1,26 @@
+
+.fa-sm {
+  width: 14px;
+  height: 14px;
+  font-size: 14px;
+}
+
+.fa-md {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+}
+
+.fa-lg {
+  width: 36px;
+  height: 36px;
+  font-size: 36px;
+}
+
+@for $i from 1 through 10 {
+  .#{$fa-css-prefix}-#{$i}x {
+    width: $i * 1rem;
+    height: $i * 1rem;
+    font-size: $i * 1rem;
+  }
+}

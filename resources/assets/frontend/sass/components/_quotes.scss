@@ -1,0 +1,120 @@
+.quotes-container {
+  .quotes {
+    margin-top: -10px;
+    padding-bottom: rem(30px);
+    margin-bottom: 0;
+    opacity: 0;
+    height: 143px;
+
+    &.slick-initialized {
+      opacity: 1;
+      height: auto;
+    }
+
+    .slick-list {
+      margin-left: -10px;
+      padding:  rem(10px);
+    }
+
+    .slick-dots {
+      bottom: 5px;
+
+      li {
+        width: rem(14px);
+        height: rem(14px);
+        margin: 0 2px;
+
+        button {
+          width: rem(14px);
+          height: rem(14px);
+          padding: 0;
+
+          &:before {
+            content: ' ';
+            background: $slick-dot-color;
+            border-radius: rem(6px);
+            width: rem(6px);
+            height: rem(6px);
+            opacity: 1;
+            left: 50%;
+            top: 50%;
+            margin-left: -3px;
+            margin-top: -3px;
+          }
+        }
+
+        &.slick-active {
+          button {
+            &:before {
+              background: $slick-dot-color-active;
+              border-radius: rem(8px);
+              width: rem(8px);
+              height: rem(8px);
+              margin-left: -4px;
+              margin-top: -4px;
+            }
+          }
+        }
+      }
+    }
+
+    .slick-slide {
+      margin-left: rem(25px);
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    &__item {
+      background: $white;
+      border-radius: rem(4px);
+      box-shadow: 0 0 10px rgba(0,0,0,.1);
+      font-family: $font-family-secondary;
+      font-size: rem(14px);
+      text-align: center;
+      padding: rem(15px) rem(15px);
+      min-width: rem(93px);
+
+      .name {
+        text-transform: uppercase;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .percentage {
+        font-weight: bold;
+
+        &--up {
+          color: $blue;
+        }
+
+        &--down {
+          color: $red;
+        }
+      }
+
+      .points {
+        font-weight: 300;
+      }
+    }
+  }
+  .quotes-shadow{
+    width: 60px;
+    height: 130px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.52) 0%,
+      rgba(255, 255, 255, 0.96) 47%,
+      rgb(255, 255, 255) 100%
+    );
+
+    @include media-breakpoint-down(md) {
+      background: linear-gradient(90deg,#f5f5f566,#f5f5f5 47%,#f4f4f4);
+    }
+  }
+}
+
