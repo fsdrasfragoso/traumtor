@@ -90,14 +90,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($statistics->getFootballerStats(request()->input('footballer')) as $stat)
-                                    <tr>
-                                        <td>{{ $stat->name }}</td>
-                                        <td>{{ $stat->goals }}</td>
-                                        <td>{{ $stat->assists }}</td>
-                                        <td>{{ $stat->fouls }}</td>
-                                    </tr>
-                                @endforeach
+                                @if(!empty($statistics))
+                                    @foreach ($statistics->getFootballerStats(request()->input('footballer')) as $stat)
+                                        <tr>
+                                            <td>{{ $stat->name }}</td>
+                                            <td>{{ $stat->goals }}</td>
+                                            <td>{{ $stat->assists }}</td>
+                                            <td>{{ $stat->fouls }}</td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
                         </table>
                     </div>
