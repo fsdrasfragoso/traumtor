@@ -1,26 +1,44 @@
-<IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
-    </IfModule>
+<IfModule mod_headers.c>
+    # Permitir CORS para todas as origens
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With, Origin, Accept"
+    Header set Access-Control-Allow-Credentials "true"
+</IfModule>
 
+<IfModule mod_rewrite.c>
     RewriteEngine On
 
-    # Handle Authorization Header
+    # Manter o cabeçalho Authorization
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    # Redirect Trailing Slashes If Not A Folder...
+    # Redirecionar barras finais, exceto se for um diretório
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
 
-    # Handle Front Controller...
-    RewriteCond %{REQUEST_FILENAME} !-d
+    # Enviar requisições para o controlador frontal
     RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^ index.php [L]
-
-    php_value upload_max_filesize 64M
-    php_value post_max_size 64M
-
-    
 </IfModule>
+
+<IfModule mod_negotiation.c>
+    Options -MultiViews -Indexes
+</IfModule>
+
+# Responder a requisições OPTIONS
+<IfModule mod_headers.c>
+    <FilesMatch "\.(php|html|js|css)$">
+        Header always set Access-Control-Allow-Origin "*"
+        Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+        Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With, Origin, Accept"
+        Header always set Access-Control-Allow-Credentials "true"
+    </FilesMatch>
+</IfModule>
+
+# Configuração para retornar 204 para requisições OPTIONS
+<LimitExcept GET POST PUT DELETE OPTIONS>
+    Deny from all
+</LimitExcept>

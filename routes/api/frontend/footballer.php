@@ -14,7 +14,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Frontend\FootballerController;
 
-Route::prefix('footballer')->middleware(['auth:api,footballers'])->group(function () {
+Route::prefix('footballer')->middleware(['apiJwt','cors'])->group(function () {
     Route::get('/data-logged', [FootballerController::class, 'getLoggedFootballer']);
 });
 
