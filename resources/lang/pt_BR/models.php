@@ -234,6 +234,7 @@ return [
             'edit' => 'Editar modalidade',
             'show' => 'Visualizar modalidade',
             'delete' => 'Apagar modalidade',
+            'restore' => 'Restaurar modalidade',
 
             'success' => [
                 'created' => 'Modalidade criada.',

@@ -13,6 +13,7 @@
         "ext-soap": "*",
         "anhskohbo/no-captcha": "^3.0",
         "aws/aws-sdk-php-laravel": "^3.3",
+        "bugsnag/bugsnag-laravel": "^2.28",
         "doctrine/dbal": "^4.0",
         "guzzlehttp/guzzle": "^7.8",
         "hedii/artisan-log-cleaner": "^7.0",
@@ -40,8 +41,8 @@
         "spatie/laravel-sitemap": "^7.2",
         "spatie/laravel-webhook-server": "^3.4.1",
         "staudenmeir/eloquent-json-relations": "^1.1",
-        "vindi/vindi-php": "^1.2",
-        "tymon/jwt-auth": "^2.0"
+        "tymon/jwt-auth": "^2.0",
+        "vindi/vindi-php": "^1.2"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.4",

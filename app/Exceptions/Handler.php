@@ -5,8 +5,8 @@ namespace App\Exceptions;
 Use Throwable;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Bugsnag\BugsnagLaravel\Facades\Bugsnag;
 use Vindi\Exceptions\ValidationException;
-
 class Handler extends ExceptionHandler
 {
     /**
@@ -59,6 +59,14 @@ class Handler extends ExceptionHandler
             return $exception->redirect();
         }
 
+        if ($exception instanceof ValidationException) {
+            Bugsnag::notifyException($exception);
+        }
+
+        if ($exception instanceof HttpRedirectException) {
+            return $exception->redirect();
+        }
+
         return parent::render($request, $exception);
     }
 
@@ -83,6 +91,6 @@ class Handler extends ExceptionHandler
             return redirect()->guest(route('web.admin.login'));
         }
 
-        return redirect()->guest($exception->redirectTo() ?? route('web.frontend.login'));
+        return redirect()->guest($exception->redirectTo($request) ?? route('web.frontend.login'));
     }
 }

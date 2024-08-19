@@ -185,6 +185,8 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Spatie\Activitylog\ActivitylogServiceProvider::class,
         Spatie\MediaLibrary\MediaLibraryServiceProvider::class,
+
+        Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
     ],
 
     /*
@@ -234,8 +236,6 @@ return [
         'Str' => Illuminate\Support\Str::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
-        'View' => Illuminate\Support\Facades\View::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
-        'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class,
+        'View' => Illuminate\Support\Facades\View::class,        
     ],
 ];

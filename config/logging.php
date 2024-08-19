@@ -39,6 +39,12 @@ return [
             'channels' => ['daily', 'bugsnag'],
         ],
 
+        'fetch_container' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/fetch_container.log'),
+            'level' => 'debug',
+        ],
+
         'single' => [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),

@@ -20,9 +20,7 @@
                     @slot('required', true)
                 @endcomponent
                                 
-            @endcomponent
-
-            
+            @endcomponent            
         </div>
         
 

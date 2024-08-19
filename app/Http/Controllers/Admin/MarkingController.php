@@ -25,9 +25,9 @@ class MarkingController extends CrudController
 
     /**
      * Returns the request that should be used to validate.
-     *
+     * 
      * @return Request
-     */
+     */ 
     protected function formRequest()
     {
         return app(SaveMarkingRequest::class);
