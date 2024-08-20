@@ -12,10 +12,10 @@
 */
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Frontend\FootballerController;
+use App\Http\Controllers\Frontend\ModalityController;
 
-Route::prefix('footballer')->middleware(['apiJwt','cors'])->group(function () {
-    Route::get('/data-logged', [FootballerController::class, 'getLoggedFootballer'])->name('api.frontend.footballers.getLoggedFootballer');;
+Route::prefix('modality')->middleware(['apiJwt','cors'])->group(function () {
+    Route::get('/all', [ModalityController::class, 'all'])->name('api.frontend.modalities.all');
 });
 
 

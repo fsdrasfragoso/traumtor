@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Admin\Concerns\HasBreadcrumbs;
 use App\Http\Controllers\Admin\Concerns\HasForm;
@@ -50,8 +50,6 @@ abstract class CrudController extends Controller
     public function index(Request $request)
     {
 
-        $this->authorize('list', $this->resourceType);
-
         $resources = $this->getRepository()
             ->index($request->all());
 
@@ -72,8 +70,6 @@ abstract class CrudController extends Controller
      */
     public function list(Request $request)
     {
-
-        $this->authorize('list', $this->resourceType);
 
         $resources = $this->getRepository()
             ->index($request->all());
@@ -103,7 +99,7 @@ abstract class CrudController extends Controller
         $instance = $this->getRepository()
             ->find($id, true);
 
-        $this->authorize('view', $instance);
+        
 
         $this->addBreadcrumb($instance, 'show');
 
@@ -122,7 +118,6 @@ abstract class CrudController extends Controller
      */
     public function create(Request $request)
     {
-        $this->authorize('create', $this->resourceType);
 
         $this->addBreadcrumb($this->instance, 'create');
 
@@ -143,7 +138,7 @@ abstract class CrudController extends Controller
      */
     public function store(Request $request)
     {
-        $this->authorize('create', $this->resourceType);
+        
 
         if ($resource = $this->getRepository()
             ->create($this->formParams())
@@ -182,8 +177,6 @@ abstract class CrudController extends Controller
         $instance = $this->getRepository()
             ->find($id, true);
 
-        $this->authorize('update', $instance);
-
         $this->addBreadcrumb($instance, 'edit');
 
         return $this->view('edit')
@@ -206,8 +199,6 @@ abstract class CrudController extends Controller
     {
         $instance = $this->getRepository()
             ->find($id, true);
-
-        $this->authorize('update', $instance);
 
         if ($resource = $this->getRepository()
             ->update($instance, $this->formParams())
@@ -234,8 +225,6 @@ abstract class CrudController extends Controller
         $instance = $this->getRepository()
             ->find($id, true);
 
-        $this->authorize('delete', $instance);
-
         if ($success = $this->getRepository()
             ->delete($instance)
         ) {
@@ -260,8 +249,6 @@ abstract class CrudController extends Controller
     {
         $instance = $this->getRepository()
             ->find($id, true);
-
-        $this->authorize('restore', $instance);
 
         if ($success = $this->getRepository()
             ->restore($instance)
@@ -293,14 +280,14 @@ abstract class CrudController extends Controller
      */
     protected function afterCreate(Request $request, $resource)
     {
-        $user = user();
+        $footballer = footballer();
         $route = null;
 
-        if ($user->can('view', $resource)) {
+        if ($footballer->can('view', $resource)) {
             $route = $resource->route('show');
-        } elseif ($user->can('update', $resource)) {
+        } elseif ($footballer->can('update', $resource)) {
             $route = $resource->route('edit');
-        } elseif ($user->can('list', $this->resourceType)) {
+        } elseif ($footballer->can('list', $this->resourceType)) {
             $route = $resource->route('index');
         }
 
@@ -418,7 +405,7 @@ abstract class CrudController extends Controller
      */
     public function all(Request $request)
     {
-        $this->authorize('list', $this->resourceType);
+        
 
         $resources = $this->getRepository()
             ->index($request->all());
@@ -436,9 +423,7 @@ abstract class CrudController extends Controller
      */
     public function getTranslateAdminColumns(Request $request)
     {
-        $this->authorize('list', $this->resourceType);
-
-
+        
         return response()->json($this->instance->getTranslateAdminColumns($this->resourceType), 200);
     }
 
@@ -451,8 +436,7 @@ abstract class CrudController extends Controller
      * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function getAdminLines(Request $request)
-    {
-        $this->authorize('list', $this->resourceType);
+    {       
 
         $resources = $this->getRepository()
             ->index($request->all());
@@ -472,8 +456,6 @@ abstract class CrudController extends Controller
     public function getAdminActions(Request $request)
     {
 
-        $this->authorize('list', $this->resourceType);
-
         $resources = $this->getRepository()
             ->index($request->all());
 
@@ -491,7 +473,6 @@ abstract class CrudController extends Controller
      */
     public function getSelectOptions(Request $request)
     {
-        $this->authorize('list', $this->resourceType);
 
         return response()->json((new  $this->repositoryType)->selectOptions(), 200);
     }
@@ -511,15 +492,12 @@ abstract class CrudController extends Controller
         $instance = $this->getRepository()
             ->find($id);
 
-        $this->authorize('view', $instance);
-
         return response()->json($instance, 200);
     }
 
     public function import(Request $request)
     {
-        $this->authorize('import', $this->resourceType);
-
+       
         return $this->view('import')
             ->with('type', $this->resourceType)
             ->with('instance', $this->instance);
@@ -539,8 +517,6 @@ abstract class CrudController extends Controller
     {
         $instance = $this->getRepository()
             ->find($id, true);
-
-        $this->authorize('delete', $instance);
 
         if ($success = $this->getRepository()
             ->delete($instance)
