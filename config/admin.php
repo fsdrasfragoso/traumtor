@@ -60,11 +60,17 @@ return [
                     'policy' => ['list', 'App\\Models\\Modality'],
                 ],
                 [
-                    'label' => 'Position',
+                    'label' => 'Posições',
                     'icon' => 'fa-md fal fa-map-marker-alt',
                     'route' => 'web.admin.positions.index',
                     'policy' => ['list', 'App\\Models\\Position'],
                 ],
+                [
+                    'label' => 'Grupos',
+                    'icon' => 'fa-md fal fa-users',
+                    'route' => 'web.admin.groups.index',
+                    'policy' => ['list', 'App\\Models\\Group'],
+                ],                
                 [
                     'label' => 'Formação Tática',
                     'icon' => 'fa-md fal fa-chalkboard-teacher',

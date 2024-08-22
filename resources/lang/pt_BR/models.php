@@ -330,6 +330,41 @@ return [
         ],
     ],
 
+    'App\\Models\\Group' => [
+    'name' => 'Grupo',
+    'attributes' => [
+        'name' => 'Nome',
+        'schedules' => 'Horários',
+        'street' => 'Rua',
+        'number' => 'Número',
+        'zip_code' => 'CEP',
+        'district' => 'Bairro',
+        'footballers'=>'Futebolistas',
+        'city' => 'Cidade',
+        'state' => 'Estado',
+        'modality_id' => 'Modalidade',
+        'modality--name' => 'Modalidade',
+        'captain_id' => 'Capitão',
+        'captain--name' => 'Nome do Capitão',
+        'created_at' => 'Criado Em',
+        'updated_at' => 'Atualizado Em',
+    ],
+    'actions' => [
+        'label' => 'Grupo',
+        'index' => 'Lista de grupos',
+        'create' => 'Novo grupo',
+        'edit' => 'Editar grupo',
+        'show' => 'Visualizar grupo',
+        'delete' => 'Apagar grupo',
+
+        'success' => [
+            'created' => 'Grupo criado.',
+            'updated' => 'Grupo atualizado.',
+            'deleted' => 'Grupo apagado.',
+            'restored' => 'Grupo restaurado.',
+        ],
+    ],
+],
 
 
     'App\\Models\\Export' => [

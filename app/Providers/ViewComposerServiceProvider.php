@@ -23,6 +23,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         View::composer('admin.roles.*', Admin\RoleViewComposer::class);
         View::composer('admin.users.*', Admin\UserViewComposer::class);
         View::composer('admin.footballers.*', Admin\FootballerViewComposer::class);
+        View::composer('admin.groups.*', Admin\GroupViewComposer::class);
         View::composer('frontend.*', Frontend\Layouts\ProfileViewComposer::class);
         View::composer('admin.positions.*', Admin\PositionViewComposer::class);
         View::composer('admin.markings.*', Admin\MarkingViewComposer::class); 
