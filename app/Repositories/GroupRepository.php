@@ -36,19 +36,28 @@ class GroupRepository extends CrudRepository
      */
     public function afterSave($resource, $attributes)
     {  
-        $resource->footballers()->sync(data_get($attributes, 'footballers', []));  
-        $resource->schedules()->delete();
-        
-        
-        $schedules = data_get($attributes, 'schedules', []);
-        foreach ($schedules as $schedule) {
-            $resource->schedules()->create([
-                'day' => $schedule['day'],
-                'start_time' => $schedule['startTime'],
-                'closing_time' => $schedule['endTime'],
-                'modality_id' => $schedule['modality_id'],
-            ]);
+        if(!empty(data_get($attributes, 'footballers', [])))
+        {
+            $resource->footballers()->sync(data_get($attributes, 'footballers', []));  
         }
+        
+        if(!empty(data_get($attributes, 'schedules', [])))
+        {
+            $resource->schedules()->delete();      
+        
+            $schedules = data_get($attributes, 'schedules', []);
+            
+            foreach ($schedules as $schedule) 
+            {
+                $resource->schedules()->create([
+                    'day' => $schedule['day'],
+                    'start_time' => $schedule['startTime'],
+                    'closing_time' => $schedule['endTime'],
+                    'modality_id' => $schedule['modality_id'],
+                ]);
+            }            
+        }
+        
         
         
         return $resource;
