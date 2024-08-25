@@ -35,3 +35,5 @@ RUN composer install
 RUN php artisan migrate
 
 RUN php artisan vendor:publish --tag=laravel-pagination
+
+RUN chmod -R 777 storage
