@@ -28,3 +28,10 @@ RUN apk upgrade --update && apk add \
   libpng-dev \
 && docker-php-ext-configure gd --with-freetype --with-jpeg \
 && docker-php-ext-install -j$(nproc) gd
+
+#Rodar o Composer
+RUN composer install
+
+RUN php artisan migrate
+
+RUN php artisan vendor:publish --tag=laravel-pagination
