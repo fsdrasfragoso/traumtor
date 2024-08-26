@@ -140,6 +140,16 @@ class Group extends Model implements HasMedia
         return trans('models.default.attributes.options.state');
     }
 
+    /**
+     * State options.
+     *
+     * @return array
+     */
+    public static function dayOptions()
+    {
+        return trans('models.default.attributes.options.day');
+    }
+
     public function schedules(): HasMany
     {
         return $this->hasMany(GroupModalitySchedule::class, 'group_id');

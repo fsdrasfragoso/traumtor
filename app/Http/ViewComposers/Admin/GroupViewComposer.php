@@ -19,14 +19,15 @@ class GroupViewComposer
     {
                 
         $daysOfWeek = [
-            'domingo' => 'Domingo', 
-            'segunda-feira' => 'Segunda-feira', 
-            'terça-feira' => 'Terça-feira', 
-            'quarta-feira' => 'Quarta-feira', 
-            'quinta-feira' => 'Quinta-feira', 
-            'sexta-feira' => 'Sexta-feira', 
-            'sábado' => 'Sábado'
+            'sunday' => 'Domingo', 
+            'monday' => 'Segunda-feira', 
+            'tuesday' => 'Terça-feira', 
+            'wednesday' => 'Quarta-feira', 
+            'thursday' => 'Quinta-feira', 
+            'friday' => 'Sexta-feira', 
+            'saturday' => 'Sábado'
         ];
+        
         $view->with('states',(new Group())->stateOptions());
         $view->with('daysOfWeek', $daysOfWeek);
         $view->with('footballers', (new FootballerRepository())->selectOptions());

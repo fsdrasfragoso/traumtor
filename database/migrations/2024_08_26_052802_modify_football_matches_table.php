@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('football_matches', function (Blueprint $table) {
-           
-            $table->dropColumn(['local_name', 'address', 'city', 'state', 'zip_code', 'scheduled_by', 'modality_id']);          
+        Schema::table('football_matches', function (Blueprint $table) {         
+                
            
             $table->unsignedBigInteger('group_modality_schedule_id')->after('match_datetime');            
             

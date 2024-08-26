@@ -675,6 +675,15 @@ return [
                     'SE' => 'SE',
                     'TO' => 'TO',
                 ],
+                'day' => [
+                    'sunday' => 'Domingo', 
+                    'monday' => 'Segunda-feira', 
+                    'tuesday' => 'Terça-feira', 
+                    'wednesday' => 'Quarta-feira', 
+                    'thursday' => 'Quinta-feira', 
+                    'friday' => 'Sexta-feira', 
+                    'saturday' => 'Sábado',
+                ],
                 'payment_gateway' => [
                     'manual' => 'Manual',
                     'asaas' => 'Asaas',

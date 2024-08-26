@@ -152,7 +152,7 @@ class CrudRepository extends Repository
     public function create($attributes)
     {
         return DB::transaction(function () use ($attributes) {
-            $attributes = $this->createAttributes($attributes);
+            $attributes = $this->beforeStore($this->createAttributes($attributes));
 
             /** @var Model $resource */
             $resource = $this->build($attributes, true);
@@ -196,6 +196,19 @@ class CrudRepository extends Repository
     {
         return $this->filterAttributes($attributes);
     }
+
+    /**
+     * Handles model before store.
+     *
+     * @param array $attributes
+     *
+     * @return array $attributes
+     */
+    public function beforeStore($attributes)
+    {
+        return $attributes;
+    }
+    
 
     /**
      * Handles model after store.

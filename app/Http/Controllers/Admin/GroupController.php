@@ -33,6 +33,6 @@ class GroupController extends CrudController
         return app(SaveGroupRequest::class);
     }
 
-    // Additional methods related to group management can be added here if needed.
+    
 }
 

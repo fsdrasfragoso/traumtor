@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::table('group_modality_schedule', function (Blueprint $table) {
             $table->enum('day', [
-                'domingo', 
-                'segunda-feira', 
-                'terça-feira', 
-                'quarta-feira', 
-                'quinta-feira', 
-                'sexta-feira', 
-                'sábado'
+                'sunday',
+                'monday', 
+                'tuesday', 
+                'wednesday', 
+                'thursday', 
+                'friday', 
+                'saturday'
             ])->after('modality_id')->comment('Day of the week');
         });
     }

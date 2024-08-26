@@ -22,14 +22,8 @@ class SaveFootballMatchRequest extends CrudRequest
     protected function createRules()
     {
         return [
-            'match_datetime' => ['required', 'date'],
-            'local_name' => ['required', 'string', 'max:255'],
-            'address' => ['required', 'string', 'max:255'],
-            'city' => ['required', 'string', 'max:255'],
-            'state' => ['required', 'string', 'max:255'],
-            'zip_code' => ['required', 'string', 'regex:/^\d{5}-\d{3}$/'],
-            'modality_id' => ['required', 'integer', 'exists:modalities,id'],
-            'scheduled_by' => ['required', 'integer', 'exists:footballers,id'],
+            'group_modality_schedule_id' => ['required'],           
+            
         ];
     }
 
@@ -41,14 +35,7 @@ class SaveFootballMatchRequest extends CrudRequest
     protected function editRules()
     {
         return [
-            'match_datetime' => ['required', 'date'],
-            'local_name' => ['required', 'string', 'max:255'],
-            'address' => ['required', 'string', 'max:255'],
-            'city' => ['required', 'string', 'max:255'],
-            'state' => ['required', 'string', 'max:255'],
-            'zip_code' => ['required', 'string', 'regex:/^\d{5}-\d{3}$/'],
-            'modality_id' => ['required', 'integer', 'exists:modalities,id'],
-            'scheduled_by' => ['required', 'integer', 'exists:footballers,id'],
+            'group_modality_schedule_id' => ['required'],
         ];
     }
 

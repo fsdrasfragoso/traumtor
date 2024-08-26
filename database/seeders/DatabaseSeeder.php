@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ModalitiesTableSeeder::class);
         $this->call(PositionsTableSeeder::class);
         $this->call(TacticalFormationsTableSeeder::class);
+        $this->call(GroupsTableSeeder::class);
         
     }
 }

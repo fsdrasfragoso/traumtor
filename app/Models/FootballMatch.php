@@ -7,8 +7,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\Relations\BelongsToModality;
 use App\Models\Relations\BelongsToFootballer;
+use App\Models\Relations\BelongsToGroupModalitySchedule;
 use App\Models\Concerns\WithModalityNameAdminColumn;
 
 class FootballMatch extends Model implements HasMedia
@@ -16,8 +16,8 @@ class FootballMatch extends Model implements HasMedia
     use InteractsWithMedia;
     use LogsActivity;
     use HasFactory;
-    use BelongsToModality;
     use BelongsToFootballer;
+    use BelongsToGroupModalitySchedule;
     use WithModalityNameAdminColumn; 
 
     protected static $logAttributes = ['*'];
@@ -25,16 +25,7 @@ class FootballMatch extends Model implements HasMedia
 
     protected $table = 'football_matches';
 
-    protected $fillable = [
-        'match_datetime', 
-        'local_name', 
-        'address', 
-        'city', 
-        'state', 
-        'zip_code', 
-        'modality_id', 
-        'scheduled_by'
-    ];
+    
 
     /**
      * List of headers for the admin listing table.
@@ -43,7 +34,7 @@ class FootballMatch extends Model implements HasMedia
      */
     public function getAdminColumns()
     {
-        return ['id', 'match_datetime', 'local_name', 'city', 'state', 'zip_code', 'modality--name', 'created_at'];
+        return ['id', 'match_datetime', 'created_at'];
     }
 
     /**
@@ -55,7 +46,7 @@ class FootballMatch extends Model implements HasMedia
      */
     public function getAdminColumnExpand($index, $attribute)
     {
-        return in_array($attribute, ['match_datetime', 'local_name', 'city', 'state', 'zip_code', 'created_at']);
+        return in_array($attribute, ['match_datetime', 'created_at']);
     }
 
     /**
@@ -65,7 +56,7 @@ class FootballMatch extends Model implements HasMedia
      */
     public function getOrderColumns()
     {
-        return ['id', 'match_datetime', 'local_name', 'city', 'state', 'zip_code', 'created_at'];
+        return ['id', 'match_datetime', 'created_at'];
     }
 
     /**

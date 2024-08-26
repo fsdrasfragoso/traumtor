@@ -2,6 +2,7 @@
 @component('admin.layouts.components.card_clean')
     @slot('title', $group->name)
     <div class="table-responsive">
+        
         <table class="table table-striped footballer-data">
             <tr>
                 <td class="shrink"><strong>{{ modelAttribute($type_group, 'street') }}</strong></td>
@@ -41,7 +42,7 @@
 
     @foreach ($group->schedules as $schedule)
         @component('admin.footballers.partials.group_modality_schedule_info')
-           
+
             @slot('schedule',$schedule)
             @slot('type_group',$type_group)
         @endcomponent    

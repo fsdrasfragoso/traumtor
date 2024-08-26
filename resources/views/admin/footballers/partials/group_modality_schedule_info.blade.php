@@ -1,6 +1,18 @@
 @component('admin.layouts.components.card_clean')
-    @slot('title', $schedule->day)
-    <div class="table-responsive">
+    @slot('title', modelAttribute('default', 'options.day.' . $schedule->day)) 
+    {{ html()->form('POST', route('web.admin.football_matches.store'))->open() }}
+
+        
+        {{ html()->hidden('group_modality_schedule_id', $schedule->id) }}
+        {{ html()->hidden('day', $schedule->day) }}
+        {{ html()->hidden('start_time', $schedule->start_time) }}
+       
+        <button type="submit" style="width: 100%" class="btn btn-primary fields-toggle" data-toggle="fields" data-target="sales-fields">
+            Agendar Partida
+        </button>
+
+    {{ html()->form()->close() }}
+    <div class="table-responsive">        
         <table class="table table-striped footballer-data">
             <tr>
                 <td class="shrink"><strong>{{ modelAttribute($type_group, 'modality_id') }}</strong></td>
