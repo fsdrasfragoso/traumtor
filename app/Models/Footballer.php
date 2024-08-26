@@ -39,6 +39,7 @@ use App\Models\Concerns\WithModalitiesAdminColumn;
 use App\Models\Concerns\WithPositionsAdminColumn;
 use App\Models\Relations\HasManyFootballMatches;
 use App\Models\Relations\HasManyFootballMatchPlayers;
+use App\Models\Relations\BelongsToManyGroup;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 
@@ -63,6 +64,7 @@ class Footballer extends Model implements AuthenticatableContract, AuthorizableC
     use WithModalitiesAdminColumn;
     use WithPositionsAdminColumn;
     use HasManyFootballMatchPlayers;
+    use BelongsToManyGroup;
 
     public const STATUS_ACTIVE = 'active';
     public const STATUS_BLOCKED = 'blocked';

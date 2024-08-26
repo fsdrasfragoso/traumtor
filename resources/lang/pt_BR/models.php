@@ -186,6 +186,8 @@ return [
             'positions' => 'Posições',
             'overall'=> 'Overall',
             'dominant_foot'=>'Pé Dominante',
+            'height' => 'Altura',
+            'weight' => 'Peso',
             'options' => [
                 'status' => [
                     'active' => 'Ativo',
@@ -335,6 +337,7 @@ return [
     'attributes' => [
         'name' => 'Nome',
         'schedules' => 'Horários',
+        'day' => 'Dia da Semana',
         'street' => 'Rua',
         'number' => 'Número',
         'zip_code' => 'CEP',
@@ -486,6 +489,10 @@ return [
             'created_at' => 'Data de Cadastro',
             'custom_price' => 'Preço customizável',
             'footballer_id' => 'Futebolista',
+            'modality_id' => 'Modalidade',
+            'day' => 'Dia da Semana',
+            'start_time' => 'Hora de Inicio',
+            'closing_time' => 'Encerramento',             
             'footballer-addresses-city' => 'Cidade',
             'footballer-addresses-complement' => 'Complemento',
             'footballer-addresses-neighborhood' => 'Bairro',

@@ -1,7 +1,7 @@
 <table class="table table-striped">
     <tr>
         <td class="shrink"><strong>{{ modelAttribute(\App\Models\Footballer::class, 'name') }}</strong></td>
-        <td>{{ $footballer->name }}</td>
+        <td>{{ $footballer->name }}</td> 
     </tr>
     <tr>
         <td class="shrink"><strong>{{ modelAttribute(\App\Models\Footballer::class, 'email') }}</strong></td>

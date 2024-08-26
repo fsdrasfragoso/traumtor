@@ -45,19 +45,24 @@
 
                 <div class="card">
                     <div class="list-group list-group-flush" role="tablist">
-                        <button type="button" class="btn btn-link list-group-item list-group-item-action fields-toggle active" data-toggle="fields" data-target="sales-fields">Vendas</button>
-                        <button type="button" class="btn btn-link list-group-item list-group-item-action fields-toggle" data-toggle="fields" data-target="personal-fields">Dados básicos</button>
+                        <button type="button" class="btn btn-link list-group-item list-group-item-action fields-toggle active" data-toggle="fields" data-target="personal-fields">Dados básicos</button>
+                        <button type="button" class="btn btn-link list-group-item list-group-item-action fields-toggle" data-toggle="fields" data-target="sales-fields">Grupos</button>                       
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="col-md-8 col-xl-9">
-            <div id="sales-fields" class="fields collapse show">
-                
+            <div id="sales-fields" class="fields collapse">
+                @foreach ($instance->groups as $group)
+                    @component('admin.footballers.partials.group_info')
+                        @slot('group',$group)
+                        @slot('type',$type)
+                    @endcomponent
+                @endforeach
             </div>
 
-            <div id="personal-fields" class="fields collapse">
+            <div id="personal-fields" class="fields collapse show">
                 @component('admin.layouts.components.card_clean')
                     @slot('title', __('Dados básicos'))
                     <div class="table-responsive">
@@ -65,7 +70,7 @@
                             <tr>
                                 <td class="shrink"><strong>{{ modelAttribute($type, 'name') }}</strong></td>
                                 <td>
-                                    {{ $instance->name }}
+                                    {{ $instance->name }} 
                                 </td>
                                 <td class="d-flex justify-content-end">
                                     <span class="mr-2 message"></span>
@@ -84,6 +89,84 @@
                                     <span class="mr-2 message"></span>
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" name="update-request" value="email">
+                                        <label class="custom-control-label"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="shrink"><strong>{{ modelAttribute($type, 'overall') }}</strong></td>
+                                <td>
+                                    {{ $instance->overall }}
+                                </td>
+                                <td class="d-flex justify-content-end">
+                                    <span class="mr-2 message"></span>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" name="update-request" value="overall">
+                                        <label class="custom-control-label"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="shrink"><strong>{{ modelAttribute($type, 'height') }}</strong></td>
+                                <td>
+                                    {{ $instance->height }}
+                                </td>
+                                <td class="d-flex justify-content-end">
+                                    <span class="mr-2 message"></span>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" name="update-request" value="height">
+                                        <label class="custom-control-label"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="shrink"><strong>{{ modelAttribute($type, 'weight') }}</strong></td>
+                                <td>
+                                    {{ $instance->weight }}
+                                </td>
+                                <td class="d-flex justify-content-end">
+                                    <span class="mr-2 message"></span>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" name="update-request" value="weight">
+                                        <label class="custom-control-label"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="shrink"><strong>{{ modelAttribute($type, 'dominant_foot') }}</strong></td>
+                                <td>
+                                    {{ modelAttribute($type, 'options.dominant_foot.' . $instance->dominant_foot) }}
+                                </td>
+                                <td class="d-flex justify-content-end">
+                                    <span class="mr-2 message"></span>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" name="update-request" value="dominant_foot">
+                                        <label class="custom-control-label"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="shrink"><strong>{{ modelAttribute($type, 'modalities') }}</strong></td>
+                                <td>
+                                    {{ $instance->modalities->pluck('name')->implode(', ') }}
+                                </td>
+                                <td class="d-flex justify-content-end">
+                                    <span class="mr-2 message"></span>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" name="update-request" value="modalities">
+                                        <label class="custom-control-label"></label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="shrink"><strong>{{ modelAttribute($type, 'positions') }}</strong></td>
+                                <td>
+                                    {{ $instance->positions->pluck('name')->implode(', ') }}
+                                </td>
+                                <td class="d-flex justify-content-end">
+                                    <span class="mr-2 message"></span>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" name="update-request" value="positions">
                                         <label class="custom-control-label"></label>
                                     </div>
                                 </td>
