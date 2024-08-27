@@ -25,4 +25,6 @@ class GroupModalityScheduleRepository extends CrudRepository
     {
         return 'day'; 
     }
+
+    
 }

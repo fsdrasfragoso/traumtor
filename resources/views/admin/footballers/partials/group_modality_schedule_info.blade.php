@@ -6,6 +6,7 @@
         {{ html()->hidden('group_modality_schedule_id', $schedule->id) }}
         {{ html()->hidden('day', $schedule->day) }}
         {{ html()->hidden('start_time', $schedule->start_time) }}
+        {{ html()->hidden('group_id', $schedule->group_id) }}
        
         <button type="submit" style="width: 100%" class="btn btn-primary fields-toggle" data-toggle="fields" data-target="sales-fields">
             Agendar Partida

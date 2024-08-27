@@ -69,4 +69,44 @@ class FootballMatchRepository extends CrudRepository
 
         return $attributes;
     }
+
+    /**
+     * Handles model after save.
+     *
+     * @param Model $resource
+     * @param array $attributes
+     *
+     * @return Model
+     */
+    public function afterSave($resource, $attributes)
+    {       
+        $footballes = $this->getFootballByGroupId($attributes['group_id']);         
+            
+        foreach ($footballes as $footballe) 
+        {
+            
+            $resource->footballers()->create([
+                'football_match_id' => $resource->id,
+                'footballer_id' => $footballe,
+                'is_present' => 0,                
+            ]);
+        }     
+
+        return $resource;
+    }
+
+
+    /**
+     * Return the footballer IDs by group ID.
+     *
+     * @param int $id
+     * @return array
+     */
+    public function getFootballByGroupId($id)
+    {        
+        return $this->newQuery()
+            ->from('group_footballer')
+            ->select('footballer_id')
+            ->where('group_id', $id)->pluck('footballer_id')->toArray();         
+    }
 }

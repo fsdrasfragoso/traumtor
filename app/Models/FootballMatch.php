@@ -7,16 +7,16 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Models\Relations\BelongsToFootballer;
 use App\Models\Relations\BelongsToGroupModalitySchedule;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\Concerns\WithModalityNameAdminColumn;
+use App\Models\FootballMatchPlayers;
 
 class FootballMatch extends Model implements HasMedia
 {
     use InteractsWithMedia;
     use LogsActivity;
-    use HasFactory;
-    use BelongsToFootballer;
+    use HasFactory;    
     use BelongsToGroupModalitySchedule;
     use WithModalityNameAdminColumn; 
 
@@ -101,5 +101,15 @@ class FootballMatch extends Model implements HasMedia
         $repositoryClass = $this->repository;
 
         return new $repositoryClass($this->model);
+    }
+
+    /**
+     * Represents a database relationship.
+     *
+     * @return BelongsTo
+     */
+    public function footballers(): BelongsTo
+    {
+        return $this->belongsTo(FootballMatchPlayers::class);
     }
 }

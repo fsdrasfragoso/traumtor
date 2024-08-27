@@ -14,7 +14,7 @@ class GroupsTableSeeder extends Seeder
      */
     public function run()
     {
-        // Dados a serem inseridos na tabela groups
+        
         $groups = [
             [
                 'name' => 'FUTSAL SEGUNDA DAS 21 ÀS 22:30?',
@@ -30,7 +30,7 @@ class GroupsTableSeeder extends Seeder
             ],
         ];
 
-        // Dados para popular a tabela group_modality_schedule
+        
         $schedules = [
             [
                 'day' => 'monday',
@@ -51,7 +51,7 @@ class GroupsTableSeeder extends Seeder
         ];
 
         foreach ($groups as $groupData) {
-            // Cria o grupo
+           
             $group = Group::create($groupData);
             dump("Create Group {$group->name}");
             $group->footballers()->sync($footballerIds);

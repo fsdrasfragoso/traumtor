@@ -46,7 +46,8 @@
                 <div class="card">
                     <div class="list-group list-group-flush" role="tablist">
                         <button type="button" class="btn btn-link list-group-item list-group-item-action fields-toggle active" data-toggle="fields" data-target="personal-fields">Dados básicos</button>
-                        <button type="button" class="btn btn-link list-group-item list-group-item-action fields-toggle" data-toggle="fields" data-target="sales-fields">Grupos</button>                       
+                        <button type="button" class="btn btn-link list-group-item list-group-item-action fields-toggle" data-toggle="fields" data-target="sales-fields">Grupos</button> 
+                        <button type="button" class="btn btn-link list-group-item list-group-item-action fields-toggle" data-toggle="fields" data-target="football-matches">Partidas</button>                         
                     </div>
                 </div>
             </div>
@@ -61,6 +62,12 @@
                     @endcomponent
                 @endforeach
             </div>
+
+            <div id="football-matches" class="fields collapse">
+                @component('admin.footballers.partials.football_matches_info')
+                    
+                @endcomponent
+            </div> 
 
             <div id="personal-fields" class="fields collapse show">
                 @component('admin.layouts.components.card_clean')

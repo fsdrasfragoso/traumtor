@@ -14,6 +14,6 @@ trait BelongsToGroupModalitySchedule
      */
     public function schedule(): BelongsTo
     {
-        return $this->belongsTo(GroupModalitySchedule::class);
+        return $this->belongsTo(GroupModalitySchedule::class, 'group_modality_schedule_id');
     }
 }

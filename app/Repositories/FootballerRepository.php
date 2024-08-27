@@ -169,4 +169,18 @@ class FootballerRepository extends CrudRepository
     {
         return 'name';
     }
+
+    /**
+     * Return the footballer IDs by group ID.
+     *
+     * @param int $id
+     * @return array
+     */
+    public function getFootballersByGroupId($id)
+    {        
+        return $this->newQuery()
+            ->from('group_footballer')
+            ->select('footballer_id')
+            ->where('group_id', $id)->pluck('footballer_id')->toArray();         
+    }
 }
