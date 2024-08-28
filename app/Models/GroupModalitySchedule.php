@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Libraries\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class GroupModalitySchedule extends Model
 {
@@ -40,6 +41,16 @@ class GroupModalitySchedule extends Model
     public function modality(): BelongsTo
     {
         return $this->belongsTo(Modality::class);
+    }
+
+    /**
+     * Define a "Has Many" relationship with the FootballMatch model.
+     *
+     * @return HasMany
+     */
+    public function footballMatches(): HasMany
+    {
+        return $this->hasMany(FootballMatch::class, 'group_modality_schedule_id');
     }
 
     

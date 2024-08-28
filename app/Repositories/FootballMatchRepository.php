@@ -34,8 +34,7 @@ class FootballMatchRepository extends CrudRepository
      * @return array $attributes
      */
     public function beforeStore($attributes)
-    {       
-        
+    {
         $daysOfWeekMap = [
             'sunday' => Carbon::SUNDAY,
             'monday' => Carbon::MONDAY,
@@ -48,27 +47,30 @@ class FootballMatchRepository extends CrudRepository
 
         $day = $attributes['day'];
         $startTime = $attributes['start_time'];
+        $groupModalityScheduleId = $attributes['group_modality_schedule_id'];
 
-       
         $date = Carbon::now();
-
-       
         $currentDateTime = $date->copy()->setTimeFromTimeString($startTime)->second(0);
 
-        
         if ($date->dayOfWeek === $daysOfWeekMap[$day] && $currentDateTime->greaterThanOrEqualTo($date)) {
-           
             $matchDateTime = $currentDateTime;
         } else {
-            
             $matchDateTime = $date->next($daysOfWeekMap[$day])->setTimeFromTimeString($startTime)->second(0);
         }
 
-        
+       
+        if ($this->matchExistsForScheduleAndTime($groupModalityScheduleId, $matchDateTime->format('Y-m-d'), $matchDateTime->format('H:i:s'))) 
+        {
+            $matchDateTime = $matchDateTime->addWeek()->next(Carbon::MONDAY)->setTimeFromTimeString($startTime);
+
+        }
+
         $attributes['match_datetime'] = $matchDateTime->format('Y-m-d H:i:s');
 
         return $attributes;
     }
+
+
 
     /**
      * Handles model after save.
@@ -109,4 +111,22 @@ class FootballMatchRepository extends CrudRepository
             ->select('footballer_id')
             ->where('group_id', $id)->pluck('footballer_id')->toArray();         
     }
+
+    /**
+     * Check if a match already exists for the given schedule ID, date, and time.
+     *
+     * @param int $groupModalityScheduleId
+     * @param string $date
+     * @param string $time
+     * @return bool
+     */
+    public function matchExistsForScheduleAndTime($groupModalityScheduleId, $date, $time)
+    {
+        return $this->newQuery()
+            ->where('group_modality_schedule_id', $groupModalityScheduleId)
+            ->whereDate('match_datetime', $date)
+            ->whereTime('match_datetime', $time)
+            ->exists();
+    }
+
 }

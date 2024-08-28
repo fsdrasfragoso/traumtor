@@ -9,12 +9,20 @@
                 </span>
             </a>
         </li>
-        <li class="menu__item subscriber-item {{ $routeName == 'web.frontend.preferences.edit' ? 'is-subscriber-active' : '' }}">
-            <a href="{{ route('web.frontend.preferences.edit') }}" class="menu__item__link d-flex justify-content-between" data-pjax="#main">
+        <li class="menu__item subscriber-item {{ $routeName == 'web.frontend.groups.index' ? 'is-subscriber-active' : '' }}">
+            <a href="{{ route('web.frontend.groups.index') }}" class="menu__item__link d-flex justify-content-between" data-pjax="#main">
                 <span>
-                    Minhas compras
+                    Grupos
                 </span>
             </a>
         </li>
+        <li class="menu__item subscriber-item {{ $routeName == 'web.frontend.groups.index' ? 'is-subscriber-active' : '' }}">
+            <a href="{{ route('web.frontend.groups.index') }}" class="menu__item__link d-flex justify-content-between" data-pjax="#main">
+                <span>
+                    Partidas Agendadas
+                </span>
+            </a>
+        </li>
+
     </ul>
 </nav>

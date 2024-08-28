@@ -9,8 +9,10 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Relations\BelongsToGroupModalitySchedule;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Concerns\WithModalityNameAdminColumn;
 use App\Models\FootballMatchPlayers;
+
 
 class FootballMatch extends Model implements HasMedia
 {
@@ -112,4 +114,6 @@ class FootballMatch extends Model implements HasMedia
     {
         return $this->belongsTo(FootballMatchPlayers::class);
     }
+
+    
 }

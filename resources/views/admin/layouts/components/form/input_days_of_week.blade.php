@@ -16,14 +16,14 @@
                     }}
                 </div>
                 <div class="col-md-3">
-                    <label for="schedules[{{ $index }}][startTime]">Hora de Início</label>
+                    <label for="schedules[{{ $index }}][startTime]">Início</label>
                     {{ html()->time("schedules[$index][startTime]", $schedule['start_time'] ?? null)
                         ->class('form-control')
                         ->attribute('required', true)
                     }}
                 </div>
                 <div class="col-md-3">
-                    <label for="schedules[{{ $index }}][endTime]">Hora de Término</label>
+                    <label for="schedules[{{ $index }}][endTime]">Término</label>
                     {{ html()->time("schedules[$index][endTime]", $schedule['closing_time'] ?? null)
                         ->class('form-control')
                         ->attribute('required', true)

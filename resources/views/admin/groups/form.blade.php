@@ -82,7 +82,7 @@
 
         <div class="col-lg-4">
             @component('admin.layouts.components.card')
-                @slot('title', __('Additional Information'))
+                @slot('title', __('Informações Adicionais'))
 
                 @component('admin.layouts.components.form.select')
                     @slot('type', $type)
