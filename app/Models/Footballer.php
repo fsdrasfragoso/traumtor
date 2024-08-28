@@ -509,7 +509,7 @@ class Footballer extends Model implements AuthenticatableContract, AuthorizableC
     public function matches(): BelongsToMany
     {
         return $this->belongsToMany(FootballMatch::class, 'football_match_players', 'footballer_id', 'football_match_id')
-                    ->withPivot('is_present')
+                    ->withPivot(['is_present','id'])
                     ->withTimestamps();
     }
 

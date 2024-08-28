@@ -16,8 +16,8 @@
                 </span>
             </a>
         </li>
-        <li class="menu__item subscriber-item {{ $routeName == 'web.frontend.groups.index' ? 'is-subscriber-active' : '' }}">
-            <a href="{{ route('web.frontend.groups.index') }}" class="menu__item__link d-flex justify-content-between" data-pjax="#main">
+        <li class="menu__item subscriber-item {{ $routeName == 'web.frontend.football_matches.index' ? 'is-subscriber-active' : '' }}">
+            <a href="{{ route('web.frontend.football_matches.index') }}" class="menu__item__link d-flex justify-content-between" data-pjax="#main">
                 <span>
                     Partidas Agendadas
                 </span>

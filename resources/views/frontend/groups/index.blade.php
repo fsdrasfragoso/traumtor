@@ -1,10 +1,3 @@
-@php
-/**
- * @var \App\Models\Footballer $footballer
- * @var \App\Models\Profile $profile
- * @var \App\Models\Address $address
- */
-@endphp
 
 @extends('frontend.layouts.template')
 

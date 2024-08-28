@@ -10,9 +10,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Models\Relations\BelongsToGroupModalitySchedule;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Models\Concerns\WithModalityNameAdminColumn;
 use App\Models\FootballMatchPlayers;
-
+use App\Models\Footballer;
 
 class FootballMatch extends Model implements HasMedia
 {
@@ -105,14 +106,16 @@ class FootballMatch extends Model implements HasMedia
         return new $repositoryClass($this->model);
     }
 
-    /**
-     * Represents a database relationship.
+   /**
+     * Represents a many-to-many relationship between FootballMatch and Footballer.
      *
-     * @return BelongsTo
+     * @return BelongsToMany
      */
-    public function footballers(): BelongsTo
+    public function footballers(): BelongsToMany
     {
-        return $this->belongsTo(FootballMatchPlayers::class);
+        return $this->belongsToMany(Footballer::class, 'football_match_players', 'football_match_id', 'footballer_id')
+                    ->withPivot(['is_present', 'id'])
+                    ->withTimestamps();
     }
 
     

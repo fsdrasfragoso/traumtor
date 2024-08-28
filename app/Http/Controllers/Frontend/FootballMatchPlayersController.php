@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Requests\Admin\SaveFootballMatchRequest;
-use App\Models\FootballMatch;
-use App\Repositories\FootballMatchRepository;
+use App\Http\Requests\Admin\SaveFootballMatchPlayersRequest;
+use App\Models\FootballMatchPlayers;
+use App\Repositories\FootballMatchPlayersRepository;
 use Illuminate\Http\Request;
 
-class FootballMatchController extends CrudController
+class FootballMatchPlayersController extends CrudController
 {
     /**
      * Type of the resource to manage.
      *
      * @var string
      */
-    protected $resourceType = FootballMatch::class;
+    protected $resourceType = FootballMatchPlayers::class;
 
     /**
      * Type of the managing repository.
      *
      * @var string
      */
-    protected $repositoryType = FootballMatchRepository::class;
+    protected $repositoryType = FootballMatchPlayersRepository::class;
 
     /**
      * Returns the request that should be used to validate.
@@ -30,7 +30,7 @@ class FootballMatchController extends CrudController
      */
     protected function formRequest()
     {
-        return app(SaveFootballMatchRequest::class);
+        return app(SaveFootballMatchPlayersRequest::class);
     }
 
 
