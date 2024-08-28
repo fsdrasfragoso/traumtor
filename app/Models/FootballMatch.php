@@ -118,5 +118,12 @@ class FootballMatch extends Model implements HasMedia
                     ->withTimestamps();
     }
 
+    public function teams(): BelongsToMany
+    {
+        return $this->belongsToMany(Team::class, 'football_match_players', 'football_match_id', 'team_id')
+                    ->withPivot(['is_present','id'])
+                    ->withTimestamps();
+    }
+
     
 }

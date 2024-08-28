@@ -42,7 +42,7 @@ use App\Models\Relations\HasManyFootballMatchPlayers;
 use App\Models\Relations\BelongsToManyGroup;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Tymon\JWTAuth\Contracts\JWTSubject;
-
+use App\Models\Team;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 
@@ -509,6 +509,13 @@ class Footballer extends Model implements AuthenticatableContract, AuthorizableC
     public function matches(): BelongsToMany
     {
         return $this->belongsToMany(FootballMatch::class, 'football_match_players', 'footballer_id', 'football_match_id')
+                    ->withPivot(['is_present','id'])
+                    ->withTimestamps();
+    }
+
+    public function teams(): BelongsToMany
+    {
+        return $this->belongsToMany(Team::class, 'football_match_players', 'footballer_id', 'team_id')
                     ->withPivot(['is_present','id'])
                     ->withTimestamps();
     }

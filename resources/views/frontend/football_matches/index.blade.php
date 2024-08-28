@@ -47,6 +47,21 @@
                             
                                 {{ html()->form()->close() }}
                            @endif
+                                
+                           
+                                 {{ html()->form('POST', route('web.frontend.teams.store'))->open() }}
+
+                                 {{ html()->hidden('name', 'Time A') }}
+                                 {{ html()->hidden('football_match_id', $match->pivot->football_match_id) }}
+                                
+
+
+                                 <button type="submit" style="width: 100%; margin-bottom: 10px;" class="btn btn-primary fields-toggle" data-toggle="fields" data-target="sales-fields">
+                                     Gerar Times
+                                 </button>
+                             
+                                 {{ html()->form()->close() }}
+                           
                            @component('admin.layouts.components.card_clean')
                                 @slot('title', __('Jogadores Confirmados Para o Jogo'))
                                 <div class="table-responsive">
