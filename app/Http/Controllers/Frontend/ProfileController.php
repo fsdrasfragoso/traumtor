@@ -33,18 +33,10 @@ class ProfileController extends Controller
         $footballer = footballer();
 
         $address = $footballer->address;
-        $paymentProfiles = $footballer->paymentProfiles()
-            ->latest()
-            ->get()
-            ->unique('serial');
-
-        $payment_profiles_amount = $footballer->paymentProfiles()->count();
-
+        
         return view('frontend.profiles.edit')
             ->with('footballer', $footballer)
-            ->with('address', $address)
-            ->with('paymentProfiles', $paymentProfiles)
-            ->with('payment_profiles_amount', $payment_profiles_amount);
+            ->with('address', $address);
     }
 
     /**

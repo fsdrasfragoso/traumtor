@@ -102,7 +102,7 @@ abstract class CrudController extends Controller
 
         $instance = $this->getRepository()
             ->find($id, true);
-
+      
         $this->authorize('view', $instance);
 
         $this->addBreadcrumb($instance, 'show');

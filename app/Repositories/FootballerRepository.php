@@ -134,7 +134,7 @@ class FootballerRepository extends CrudRepository
     public function updateAvatar($resource, $avatar)
     {
         $this->addBase64FileToCollection($resource, 'avatar', $avatar);
-
+        
         return $resource;
     }
 

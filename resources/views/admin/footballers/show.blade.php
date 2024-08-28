@@ -64,9 +64,13 @@
             </div>
 
             <div id="football-matches" class="fields collapse">
-                @component('admin.footballers.partials.football_matches_info')
-                    
-                @endcomponent
+               
+                @foreach ($instance->matches as $match)   
+                               
+                    @component('admin.footballers.partials.football_matches_info')
+                        @slot('match',$match)
+                    @endcomponent
+                @endforeach
             </div> 
 
             <div id="personal-fields" class="fields collapse show">

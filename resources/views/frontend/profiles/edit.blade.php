@@ -184,151 +184,99 @@
                     </div>
                     <div class="card mb-3 rounded-sm position-relative overflow-hidden full-card">
                         <div class="card-header rounded-sm card-shadow d-flex justify-content-between align-items-center" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <span>Meus Cartões</span>
+                            <span>Dados do Jogador</span>
                             <i class="fal fa-angle-down fa-2x ml-1"></i>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-
-
                             <div class="card-body">
-
-                                @if($paymentProfiles->isNotEmpty() && !$footballer->hide_creditcard)
-                                    <div class="card mb-4">
-                                        @foreach($paymentProfiles as $paymentProfile)
-                                            <label for="radio-{{ $paymentProfile->id }}" class="mb-0">
-                                                <div class="card-body rounded-sm d-flex flex-column p-2 credit-card {{ $paymentProfile->is_current ? 'active' : '' }}" data-id="{{ $paymentProfile->id }}" style="background-color: #fff !important; color: #000">
-                                                    <div class="d-flex justify-content-between">
-                                                        <div>
-                                                            #{{ $loop->index + 1 }}
-                                                            <img src="/img/admin/flags/flag-{{ $paymentProfile->flag }}.png" />
-                                                            {{ $paymentProfile->serial }} ({{ $paymentProfile->getMethodName() }})
-                                                        </div>
-                                                        <div class="d-flex align-items-center">
-                                                            <input
-                                                                id="radio-{{ $paymentProfile->id }}"
-                                                                type="radio"
-                                                                value="{{ $paymentProfile->id }}"
-                                                                name="card-selected"
-                                                                {{ $paymentProfile->is_current ? 'checked' : '' }}>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </label>
-                                        @endforeach
-                                    </div>
-                                @endif
-
-                                {{ html()
-                                    ->modelForm($footballer, 'PUT', route('web.frontend.payment_profiles.update'))
-                                    ->id('credit-card-form')
-                                    ->acceptsFiles()
-                                    ->open() }}
-
+                                {{ html()->modelForm($footballer, 'PUT', route('web.frontend.profiles.update', ['redirect_url' => request('redirect_url')]))->id('footballer-form')->acceptsFiles()->open() }}
+                    
                                 <div class="row">
-
-                                    <div class="col-md-8 pl-1 pr-1 pb-1">
-                                        <div class="d-flex">
-                                            <div class="flex-grow-1">
-                                                @component('frontend.layouts.components.form.input_text')
-                                                    @slot('name', 'serial')
-                                                    @slot('id', 'credit_card_serial')
-                                                    @slot('classParent', 'shadow-sm')
-                                                    @slot('label', 'Número do cartão')
-                                                    @slot('placeholder', 'Número do cartão')
-                                                    @slot('value', '')
-                                                    @slot('class', 'mask-creditcard strip-before-send')
-                                                    @slot('attributes', [
-                                                        'autocomplete' => 'cc-number',
-                                                        'data-flag' => '#credit_card_flag',
-                                                    ])
-                                                    @slot('required', true)
-                                                @endcomponent
-                                            </div>
+                    
+                                    <div class="col-md-6">
+                                        <div class="form-group d-flex flex-column m-0">
+                                            <label class="p-0 m-0" for="height">Altura (cm)</label>
+                                            <input style="background: none; border: none; outline: none" type="text" value="{{ old('height', $footballer->height) }}" name="height" id="height" required>
                                         </div>
+                                        <hr class="separator d-lg-none p-0 m-0" />
                                     </div>
-
-                                    <div class="col-md-4 pl-1 pl-md-0 pr-1 pb-1">
-                                        @component('frontend.layouts.components.form.select')
-                                            @slot('name', 'flag')
-                                            @slot('id', 'credit_card_flag')
-                                            @slot('classParent', 'shadow-sm')
-                                            @slot('placeholder', 'Bandeira' )
-                                            @slot('options', \App\Libraries\PaymentGateway\CreditCard::flagOptions())
-                                            @slot('required', true)
-                                        @endcomponent
-                                    </div>
-
-                                    <div class="col-md-8 pl-1 pr-1 pb-1">
-                                        @component('frontend.layouts.components.form.input_text')
-                                            @slot('name', 'holder')
-                                            @slot('id', 'credit_card_holder')
-                                            @slot('classParent', 'shadow-sm')
-                                            @slot('label', 'Titular do cartão')
-                                            @slot('placeholder', 'Titular do cartão')
-                                            @slot('attributes', [
-                                                'autocomplete' => 'cc-name',
-                                            ])
-                                            @slot('required', true)
-                                        @endcomponent
-                                    </div>
-
-                                    <div class="col-md-4 pl-1 pl-md-0 pr-1 pb-1">
-                                        <div class="d-flex">
-                                            <div class="flex-grow-1">
-                                                @component('frontend.layouts.components.form.input_text')
-                                                    @slot('name', 'cvv')
-                                                    @slot('id', 'credit_card_cvv')
-                                                    @slot('classParent', 'shadow-sm')
-                                                    @slot('label', 'CVV')
-                                                    @slot('placeholder', 'CVV')
-                                                    @slot('attributes', [
-                                                        'autocomplete' => 'cc-csc',
-                                                    ])
-                                                    @slot('required', true)
-                                                @endcomponent
-                                            </div>
+                    
+                                    <div class="col-md-6">
+                                        <div class="form-group d-flex flex-column m-0">
+                                            <label class="p-0 m-0" for="weight">Peso (kg)</label>
+                                            <input style="background: none; border: none; outline: none" type="text" value="{{ old('weight', $footballer->weight) }}" name="weight" id="weight" required>
                                         </div>
+                                        <hr class="separator d-lg-none p-0 m-0" />
                                     </div>
-
-                                    <div class="col-md-6 pl-1 pr-1 pb-1">
-                                        @component('frontend.layouts.components.form.select')
-                                            @slot('name', 'month')
-                                            @slot('id', 'credit_card_month')
-                                            @slot('classParent', 'shadow-sm')
-                                            @slot('placeholder', 'Mês' )
-                                            @slot('options', \App\Libraries\PaymentGateway\CreditCard::monthOptions())
-                                            @slot('attributes', [
-                                                'autocomplete' => 'cc-exp_month',
-                                            ])
-                                            @slot('required', true)
-                                        @endcomponent
-                                    </div>
-                                    <div class="col-md-6 pl-1 pl-md-0 pr-1 pb-1">
-                                        @component('frontend.layouts.components.form.select')
-                                            @slot('name', 'year')
-                                            @slot('id', 'credit_card_year')
-                                            @slot('classParent', 'shadow-sm')
-                                            @slot('class', 'select-card')
-                                            @slot('placeholder', 'Ano' )
-                                            @slot('options', \App\Libraries\PaymentGateway\CreditCard::yearOptions())
-                                            @slot('attributes', [
-                                                'autocomplete' => 'cc-exp-year',
-                                            ])
-                                            @slot('required', true)
-                                        @endcomponent
-                                    </div>
-
+                    
                                 </div>
+                    
+                                <hr class="separator d-none d-lg-block p-0 pb-1 m-0" />
+                    
+                                <div class="row">
+                    
+                                    <div class="col-md-6">
+                                        <div class="form-group d-flex flex-column m-0">
+                                            <label class="p-0 m-0" for="dominant_foot">Pé Dominante</label>
+                                            {{ html()->select('dominant_foot', [
+                                                    '' => 'Selecione',
+                                                    'right' => 'Direito',
+                                                    'left' => 'Esquerdo',
+                                                    'ambidextrous' => 'Ambidestro',
+                                                ])
+                                                ->class('form-control')
+                                                ->required()
+                                                ->value(old('dominant_foot', $footballer->dominant_foot))
+                                            }}
+                                        </div>
+                                        <hr class="separator d-lg-none p-0 m-0" />
+                                    </div>
+                    
+                                    <div class="col-md-6">
+                                        <div class="form-group d-flex flex-column m-0">
+                                            <label class="p-0 m-0" for="modalities">Modalidades</label>
+                                            {{ html()->select('modalities[]', $modalities)
+                                                ->class('form-control select2-hidden-accessible')
+                                                ->multiple()
+                                                ->required()
+                                                ->value(old('modalities', $footballer->modalities->pluck('id')->toArray()))
+                                            }}
+                                        </div>
+                                        <hr class="separator d-lg-none p-0 m-0" />
+                                    </div>
+                    
+                                </div>
+                    
+                                <hr class="separator d-none d-lg-block p-0 pb-1 m-0" />
+                    
+                                <div class="row">
+                    
+                                    <div class="col-md-12">
+                                        <div class="form-group d-flex flex-column m-0">
+                                            <label class="p-0 m-0" for="positions">Posições</label>
+                                            {{ html()->select('positions[]', $positions)
+                                                ->class('form-control select2-hidden-accessible')
+                                                ->multiple()
+                                                ->required()
+                                                ->value(old('positions', $footballer->positions->pluck('id')->toArray()))
+                                            }}
+                                        </div>
+                                        <hr class="separator d-lg-none p-0 m-0" />
+                                    </div>
+                    
+                                </div>
+                    
                                 <div class="form-group btn-sub mt-3 mb-0">
                                     <button type="submit" class="btn btn-primary btn-lg">
-                                        Alterar Cartão
+                                        Alterar Dados
                                     </button>
                                 </div>
-
-                                {{ html()->closeModelForm() }}
+                    
+                                {{ html()->closeModelForm() }}   
                             </div>
                         </div>
                     </div>
+                    
                     <div class="card mb-3 rounded-sm position-relative overflow-hidden full-card">
                         <div class="card-header rounded-sm card-shadow d-flex justify-content-between align-items-center" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                             <span>Alterar Senha</i></span>

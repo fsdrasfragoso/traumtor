@@ -5,6 +5,9 @@ namespace App\Http\ViewComposers\Frontend\Layouts;
 use App\Services\FootballerService;
 use Illuminate\View\View;
 use App\Models\Subscription;
+use App\Repositories\PositionRepository;
+use App\Repositories\ModalityRepository;
+
 
 class ProfileViewComposer
 {
@@ -17,8 +20,13 @@ class ProfileViewComposer
     {
         $footballer = footballer();
 
-        $subscribe_url = route('web.frontend.books.index');
+        $subscribe_url = '#';
         $subscribe_text_button = 'Acesse a vitrine';
+
+
+        $view->with('type_group',\App\Models\Footballer::class);
+        $view->with('positions', (new PositionRepository())->selectOptions());
+        $view->with('modalities', (new ModalityRepository())->selectOptions()); 
 
         $view->with([
             'subscribe_url' => $subscribe_url,

@@ -40,7 +40,10 @@ use App\Models\Concerns\WithPositionsAdminColumn;
 use App\Models\Relations\HasManyFootballMatches;
 use App\Models\Relations\HasManyFootballMatchPlayers;
 use App\Models\Relations\BelongsToManyGroup;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 
 class Footballer extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract, HasMedia, JWTSubject
@@ -501,6 +504,13 @@ class Footballer extends Model implements AuthenticatableContract, AuthorizableC
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function matches(): BelongsToMany
+    {
+        return $this->belongsToMany(FootballMatch::class, 'football_match_players', 'footballer_id', 'football_match_id')
+                    ->withPivot('is_present')
+                    ->withTimestamps();
     }
 
 

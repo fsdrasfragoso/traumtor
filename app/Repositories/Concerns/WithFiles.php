@@ -2,8 +2,9 @@
 
 namespace App\Repositories\Concerns;
 
-use Spatie\MediaLibrary\HasMedia;
+
 use App\Models\Media;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 
 trait WithFiles
 {
@@ -14,12 +15,16 @@ trait WithFiles
      * @param string $collection
      * @param string $file
      */
-    protected function addFileToCollection($resource, $collection, $file)
+    protected function addFileToCollection($resource, $collection, $file, $fromDisk = false)
     {
-        if ($file) {
+        if ($file)
+        {
             $resource->clearMediaCollection($collection);
-            $resource->addMedia($file)
-                ->toMediaCollection($collection);
+            if($fromDisk) {
+                $resource->addMediaFromDisk($file)->toMediaCollection($collection);
+            } else {
+                $resource->addMedia($file)->toMediaCollection($collection);
+            }
         }
     }
 
