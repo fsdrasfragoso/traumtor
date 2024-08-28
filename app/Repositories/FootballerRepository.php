@@ -123,6 +123,37 @@ class FootballerRepository extends CrudRepository
         return $this->afterSave($resource, $attributes, 'updated');
     }
 
+     /**
+     * Handles model before update.
+     *
+     * @param array $attributes
+     * @param Model $resource
+     *
+     * @return array $attributes
+     */
+    public function beforeUpdate($resource, $attributes)
+    {
+
+        $attributes['name'] = isset($attributes['name']) ? $attributes['name'] : $resource->name;
+        $attributes['email'] = isset($attributes['email']) ? $attributes['email'] : $resource->email;
+        $attributes['document'] = isset($attributes['document']) ? $attributes['document'] : $resource->document;
+        $attributes['zip_code'] = isset($attributes['zip_code']) ? $attributes['zip_code'] : $resource->zip_code;
+        $attributes['street'] = isset($attributes['street']) ? $attributes['street'] : $resource->street;
+        $attributes['number'] = isset($attributes['number']) ? $attributes['number'] : $resource->number;
+        $attributes['neighborhood'] = isset($attributes['neighborhood']) ? $attributes['neighborhood'] : $resource->neighborhood;
+        $attributes['complement'] = isset($attributes['complement']) ? $attributes['complement'] : $resource->complement;
+        $attributes['state'] = isset($attributes['state']) ? $attributes['state'] : $resource->state;
+        $attributes['status'] = isset($attributes['status']) ? $attributes['status'] : $resource->status;
+        $attributes['modalities'] = isset($attributes['modalities']) ? $attributes['modalities'] : $resource->modalities;
+        $attributes['positions'] = isset($attributes['positions']) ? $attributes['positions'] : $resource->positions;
+        $attributes['dominant_foot'] = isset($attributes['dominant_foot']) ? $attributes['dominant_foot'] : $resource->dominant_foot;
+        $attributes['overall'] = isset($attributes['overall']) ? $attributes['overall'] : $resource->overall;
+        
+
+        
+        return $attributes;
+    }
+
     /**
      * Update footballer image collection.
      *
@@ -134,7 +165,7 @@ class FootballerRepository extends CrudRepository
     public function updateAvatar($resource, $avatar)
     {
         $this->addBase64FileToCollection($resource, 'avatar', $avatar);
-        
+
         return $resource;
     }
 

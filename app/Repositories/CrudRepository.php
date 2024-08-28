@@ -208,6 +208,19 @@ class CrudRepository extends Repository
     {
         return $attributes;
     }
+
+     /**
+     * Handles model before update.
+     *
+     * @param array $attributes
+     * @param Model $resource
+     *
+     * @return array $attributes
+     */
+    public function beforeUpdate($resource, $attributes)
+    {
+        return $attributes;
+    }
     
 
     /**
@@ -234,7 +247,7 @@ class CrudRepository extends Repository
     public function update($resource, $attributes)
     {
         return DB::transaction(function () use ($resource, $attributes) {
-            $attributes = $this->updateAttributes($attributes);
+            $attributes = $this->beforeUpdate($resource, $this->updateAttributes($attributes));
 
             /** @var Model $resource */
             $resource = $this->fill($resource, $attributes, true);
