@@ -31,7 +31,7 @@ Route::prefix('usuario')->middleware(['auth:api,footballers', 'footballer_block'
 
     Route::get('editar', [ProfileController::class, 'edit'])->name('web.frontend.profiles.edit');
     Route::put('editar', [ProfileController::class, 'update'])->name('web.frontend.profiles.update');
-
+    Route::put('editar-skills', [ProfileController::class, 'update'])->name('web.frontend.profiles.editar-skills');
     Route::get('foto', [ProfileController::class, 'editAvatar'])->name('web.frontend.profiles.editAvatar');
     Route::put('foto', [ProfileController::class, 'updateAvatar'])->name('web.frontend.profiles.updateAvatar');
     Route::delete('foto', [ProfileController::class, 'deleteAvatar'])->name('web.frontend.profiles.deleteAvatar');
