@@ -125,5 +125,15 @@ class FootballMatch extends Model implements HasMedia
                     ->withTimestamps();
     }
 
+    /**
+     * Represents a one-to-many relationship with FootballMatchPlayers.
+     *
+     * @return HasMany
+     */
+    public function footballMatchPlayers(): HasMany
+    {
+        return $this->hasMany(FootballMatchPlayers::class, 'football_match_id');
+    }
+
     
 }

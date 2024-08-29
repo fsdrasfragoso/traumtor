@@ -87,10 +87,11 @@ class FootballMatchRepository extends CrudRepository
         foreach ($footballes as $footballe) 
         {
             
-            $resource->footballers()->create([
+            $resource->footballMatchPlayers()->create([
                 'football_match_id' => $resource->id,
                 'footballer_id' => $footballe,
-                'is_present' => 0,                
+                'is_present' => 0,
+                'team_id' => null,                
             ]);
         }     
 
