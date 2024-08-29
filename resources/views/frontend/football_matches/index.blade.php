@@ -61,7 +61,34 @@
                                  </button>
                              
                                  {{ html()->form()->close() }}
-                           
+                            @foreach ($match->teams->unique('name') as $team)
+                                @component('admin.layouts.components.card_clean')
+                                    @slot('title', $team->name)
+                                    <div class="table-responsive">
+                                        <table class="table table-striped footballer-data">
+                                             @foreach ($team->footballers as $footballer)
+                                                
+                                                 <tr>
+                                                    <td class="shrink"><strong>{{ modelAttribute(\App\Models\Footballer::class, 'name') }}</strong></td>
+                                                    <td>
+                                                       {{ $footballer->name }}
+                                                    </td>
+                                                    <td class="shrink"><strong>{{ modelAttribute(\App\Models\Footballer::class, 'overall') }}</strong></td>
+                                                    <td>
+                                                        {{ $footballer->overall }}
+                                                    </td>
+                                                    <td class="shrink"><strong>{{ modelAttribute(\App\Models\Footballer::class, 'dominant_foot') }}</strong></td>
+                                                    <td>                        
+                                                        {{ modelAttribute(\App\Models\Footballer::class, 'options.dominant_foot.' . $footballer->dominant_foot) }}
+                                                    </td>                                                
+                                                </tr> 
+                                               
+                                             @endforeach        
+                                        </table>
+                                    </div> 
+
+                                @endcomponent
+                           @endforeach
                            @component('admin.layouts.components.card_clean')
                                 @slot('title', __('Jogadores Confirmados Para o Jogo'))
                                 <div class="table-responsive">

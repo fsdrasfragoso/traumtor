@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Libraries\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Team extends Model
 {
@@ -63,5 +64,12 @@ class Team extends Model
     public function getOrderDir()
     {
         return 'desc';
+    }
+
+    public function footballers(): BelongsToMany
+    {
+        return $this->belongsToMany(Footballer::class, 'football_match_players', 'team_id', 'footballer_id')
+                    ->withPivot(['is_present','id'])
+                    ->withTimestamps();
     }
 }
